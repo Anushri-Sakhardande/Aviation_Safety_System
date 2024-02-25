@@ -1,6 +1,6 @@
 ﻿namespace Frontend
 {
-    partial class Form3
+    partial class Form6
     {
         /// <summary>
         /// Required designer variable.
@@ -28,139 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form6));
             this.panelTitle = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button6 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelMenu = new System.Windows.Forms.Panel();
             this.iconButtonReview = new FontAwesome.Sharp.IconButton();
             this.iconButtonAccident = new FontAwesome.Sharp.IconButton();
             this.iconButtonReport = new FontAwesome.Sharp.IconButton();
             this.iconButtonStats = new FontAwesome.Sharp.IconButton();
             this.iconButtonCheck = new FontAwesome.Sharp.IconButton();
             this.iconButtonHome = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.panelMenu.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.submitbutton = new System.Windows.Forms.Button();
+            this.passtextBox = new System.Windows.Forms.TextBox();
+            this.phonetextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.emailtextBox = new System.Windows.Forms.TextBox();
+            this.nametextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelMenu.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelMenu
-            // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
-            this.panelMenu.Controls.Add(this.iconButtonReview);
-            this.panelMenu.Controls.Add(this.iconButtonAccident);
-            this.panelMenu.Controls.Add(this.iconButtonReport);
-            this.panelMenu.Controls.Add(this.iconButtonStats);
-            this.panelMenu.Controls.Add(this.iconButtonCheck);
-            this.panelMenu.Controls.Add(this.iconButtonHome);
-            this.panelMenu.Controls.Add(this.panel1);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(269, 971);
-            this.panelMenu.TabIndex = 4;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.iconButton1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(269, 150);
-            this.panel1.TabIndex = 10;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Nirmala UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(12, 9);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(159, 141);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Your Safest Bet";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(441, 201);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(189, 38);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Hello, Anushri!";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(448, 268);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(935, 507);
-            this.panel3.TabIndex = 6;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(80, 230);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(366, 38);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Number of Reports Accepted";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(80, 403);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(220, 38);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Contributor Rank";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(80, 317);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(339, 38);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Number of Flights Checked";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(80, 146);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(348, 38);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Number of Flights Reported";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(80, 61);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 38);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Last Login";
             // 
             // panelTitle
             // 
@@ -172,20 +72,8 @@
             this.panelTitle.Location = new System.Drawing.Point(269, 0);
             this.panelTitle.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(1618, 150);
-            this.panelTitle.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(130, 44);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 59);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "FlySafe";
+            this.panelTitle.Size = new System.Drawing.Size(1655, 150);
+            this.panelTitle.TabIndex = 15;
             // 
             // pictureBox1
             // 
@@ -204,11 +92,40 @@
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(1497, 33);
+            this.button6.Location = new System.Drawing.Point(1960, 33);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(98, 92);
             this.button6.TabIndex = 7;
             this.button6.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label1.Location = new System.Drawing.Point(130, 44);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 59);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "FlySafe";
+            // 
+            // panelMenu
+            // 
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
+            this.panelMenu.Controls.Add(this.iconButtonReview);
+            this.panelMenu.Controls.Add(this.iconButtonAccident);
+            this.panelMenu.Controls.Add(this.iconButtonReport);
+            this.panelMenu.Controls.Add(this.iconButtonStats);
+            this.panelMenu.Controls.Add(this.iconButtonCheck);
+            this.panelMenu.Controls.Add(this.iconButtonHome);
+            this.panelMenu.Controls.Add(this.panel1);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(269, 1055);
+            this.panelMenu.TabIndex = 14;
             // 
             // iconButtonReview
             // 
@@ -216,6 +133,7 @@
             this.iconButtonReview.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButtonReview.FlatAppearance.BorderSize = 0;
             this.iconButtonReview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonReview.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButtonReview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButtonReview.IconChar = FontAwesome.Sharp.IconChar.Pen;
             this.iconButtonReview.IconColor = System.Drawing.Color.White;
@@ -237,6 +155,7 @@
             this.iconButtonAccident.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButtonAccident.FlatAppearance.BorderSize = 0;
             this.iconButtonAccident.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonAccident.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButtonAccident.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButtonAccident.IconChar = FontAwesome.Sharp.IconChar.Database;
             this.iconButtonAccident.IconColor = System.Drawing.Color.White;
@@ -258,6 +177,7 @@
             this.iconButtonReport.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButtonReport.FlatAppearance.BorderSize = 0;
             this.iconButtonReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonReport.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButtonReport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButtonReport.IconChar = FontAwesome.Sharp.IconChar.ExclamationCircle;
             this.iconButtonReport.IconColor = System.Drawing.Color.White;
@@ -279,6 +199,7 @@
             this.iconButtonStats.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButtonStats.FlatAppearance.BorderSize = 0;
             this.iconButtonStats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonStats.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButtonStats.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButtonStats.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
             this.iconButtonStats.IconColor = System.Drawing.Color.White;
@@ -300,6 +221,7 @@
             this.iconButtonCheck.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButtonCheck.FlatAppearance.BorderSize = 0;
             this.iconButtonCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonCheck.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButtonCheck.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButtonCheck.IconChar = FontAwesome.Sharp.IconChar.Plane;
             this.iconButtonCheck.IconColor = System.Drawing.Color.White;
@@ -321,6 +243,7 @@
             this.iconButtonHome.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButtonHome.FlatAppearance.BorderSize = 0;
             this.iconButtonHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonHome.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButtonHome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButtonHome.IconChar = FontAwesome.Sharp.IconChar.HomeUser;
             this.iconButtonHome.IconColor = System.Drawing.Color.White;
@@ -336,6 +259,26 @@
             this.iconButtonHome.UseVisualStyleBackColor = false;
             this.iconButtonHome.Click += new System.EventHandler(this.iconButtonHome_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.iconButton1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(269, 150);
+            this.panel1.TabIndex = 10;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Nirmala UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(12, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(159, 141);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Your Safest Bet";
+            // 
             // iconButton1
             // 
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -350,44 +293,176 @@
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // Form3
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.submitbutton);
+            this.panel2.Controls.Add(this.passtextBox);
+            this.panel2.Controls.Add(this.phonetextBox);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.emailtextBox);
+            this.panel2.Controls.Add(this.nametextBox);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Location = new System.Drawing.Point(333, 215);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1039, 776);
+            this.panel2.TabIndex = 16;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(304, 457);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(458, 36);
+            this.textBox1.TabIndex = 10;
+            this.textBox1.UseSystemPasswordChar = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(59, 455);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 38);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Date";
+            // 
+            // submitbutton
+            // 
+            this.submitbutton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.submitbutton.FlatAppearance.BorderSize = 0;
+            this.submitbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.submitbutton.Font = new System.Drawing.Font("Nirmala UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitbutton.Location = new System.Drawing.Point(397, 569);
+            this.submitbutton.Name = "submitbutton";
+            this.submitbutton.Size = new System.Drawing.Size(126, 47);
+            this.submitbutton.TabIndex = 8;
+            this.submitbutton.Text = "Submit";
+            this.submitbutton.UseVisualStyleBackColor = false;
+            // 
+            // passtextBox
+            // 
+            this.passtextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passtextBox.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passtextBox.Location = new System.Drawing.Point(304, 357);
+            this.passtextBox.Name = "passtextBox";
+            this.passtextBox.Size = new System.Drawing.Size(458, 36);
+            this.passtextBox.TabIndex = 7;
+            this.passtextBox.UseSystemPasswordChar = true;
+            // 
+            // phonetextBox
+            // 
+            this.phonetextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.phonetextBox.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phonetextBox.Location = new System.Drawing.Point(304, 259);
+            this.phonetextBox.Name = "phonetextBox";
+            this.phonetextBox.Size = new System.Drawing.Size(458, 36);
+            this.phonetextBox.TabIndex = 6;
+            this.phonetextBox.UseSystemPasswordChar = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(59, 357);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(119, 38);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Location";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(59, 257);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 38);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Arrival";
+            // 
+            // emailtextBox
+            // 
+            this.emailtextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.emailtextBox.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailtextBox.Location = new System.Drawing.Point(304, 151);
+            this.emailtextBox.Name = "emailtextBox";
+            this.emailtextBox.Size = new System.Drawing.Size(458, 36);
+            this.emailtextBox.TabIndex = 3;
+            this.emailtextBox.UseSystemPasswordChar = true;
+            // 
+            // nametextBox
+            // 
+            this.nametextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nametextBox.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nametextBox.Location = new System.Drawing.Point(304, 59);
+            this.nametextBox.Name = "nametextBox";
+            this.nametextBox.Size = new System.Drawing.Size(458, 36);
+            this.nametextBox.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(59, 151);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(136, 38);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Departing";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(59, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 38);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Airplane";
+            // 
+            // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1887, 971);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelTitle);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.panelMenu);
             this.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.Name = "Form3";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Welcome";
+            this.Name = "Form6";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Report";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form3_Load);
-            this.panelMenu.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.Load += new System.EventHandler(this.Form6_Load);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelMenu.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel panelTitle;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
         private FontAwesome.Sharp.IconButton iconButtonReview;
         private FontAwesome.Sharp.IconButton iconButtonAccident;
         private FontAwesome.Sharp.IconButton iconButtonReport;
@@ -397,9 +472,17 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label8;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.Panel panelTitle;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button submitbutton;
+        private System.Windows.Forms.TextBox passtextBox;
+        private System.Windows.Forms.TextBox phonetextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox emailtextBox;
+        private System.Windows.Forms.TextBox nametextBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Frontend
 {
-    partial class Form3
+    partial class Form5
     {
         /// <summary>
         /// Required designer variable.
@@ -28,139 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
             this.panelTitle = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button6 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelMenu = new System.Windows.Forms.Panel();
             this.iconButtonReview = new FontAwesome.Sharp.IconButton();
             this.iconButtonAccident = new FontAwesome.Sharp.IconButton();
             this.iconButtonReport = new FontAwesome.Sharp.IconButton();
             this.iconButtonStats = new FontAwesome.Sharp.IconButton();
             this.iconButtonCheck = new FontAwesome.Sharp.IconButton();
             this.iconButtonHome = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.panelMenu.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelMenu.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panelMenu
-            // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
-            this.panelMenu.Controls.Add(this.iconButtonReview);
-            this.panelMenu.Controls.Add(this.iconButtonAccident);
-            this.panelMenu.Controls.Add(this.iconButtonReport);
-            this.panelMenu.Controls.Add(this.iconButtonStats);
-            this.panelMenu.Controls.Add(this.iconButtonCheck);
-            this.panelMenu.Controls.Add(this.iconButtonHome);
-            this.panelMenu.Controls.Add(this.panel1);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(269, 971);
-            this.panelMenu.TabIndex = 4;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.iconButton1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(269, 150);
-            this.panel1.TabIndex = 10;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Nirmala UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(12, 9);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(159, 141);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Your Safest Bet";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(441, 201);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(189, 38);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Hello, Anushri!";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(448, 268);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(935, 507);
-            this.panel3.TabIndex = 6;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(80, 230);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(366, 38);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Number of Reports Accepted";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(80, 403);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(220, 38);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Contributor Rank";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(80, 317);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(339, 38);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Number of Flights Checked";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(80, 146);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(348, 38);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Number of Flights Reported";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(80, 61);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 38);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Last Login";
             // 
             // panelTitle
             // 
@@ -172,20 +80,8 @@
             this.panelTitle.Location = new System.Drawing.Point(269, 0);
             this.panelTitle.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(1618, 150);
-            this.panelTitle.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(130, 44);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 59);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "FlySafe";
+            this.panelTitle.Size = new System.Drawing.Size(1400, 150);
+            this.panelTitle.TabIndex = 11;
             // 
             // pictureBox1
             // 
@@ -204,11 +100,40 @@
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(1497, 33);
+            this.button6.Location = new System.Drawing.Point(1279, 33);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(98, 92);
             this.button6.TabIndex = 7;
             this.button6.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label1.Location = new System.Drawing.Point(130, 44);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 59);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "FlySafe";
+            // 
+            // panelMenu
+            // 
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
+            this.panelMenu.Controls.Add(this.iconButtonReview);
+            this.panelMenu.Controls.Add(this.iconButtonAccident);
+            this.panelMenu.Controls.Add(this.iconButtonReport);
+            this.panelMenu.Controls.Add(this.iconButtonStats);
+            this.panelMenu.Controls.Add(this.iconButtonCheck);
+            this.panelMenu.Controls.Add(this.iconButtonHome);
+            this.panelMenu.Controls.Add(this.panel1);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(269, 1055);
+            this.panelMenu.TabIndex = 10;
             // 
             // iconButtonReview
             // 
@@ -216,6 +141,7 @@
             this.iconButtonReview.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButtonReview.FlatAppearance.BorderSize = 0;
             this.iconButtonReview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonReview.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButtonReview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButtonReview.IconChar = FontAwesome.Sharp.IconChar.Pen;
             this.iconButtonReview.IconColor = System.Drawing.Color.White;
@@ -237,6 +163,7 @@
             this.iconButtonAccident.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButtonAccident.FlatAppearance.BorderSize = 0;
             this.iconButtonAccident.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonAccident.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButtonAccident.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButtonAccident.IconChar = FontAwesome.Sharp.IconChar.Database;
             this.iconButtonAccident.IconColor = System.Drawing.Color.White;
@@ -258,6 +185,7 @@
             this.iconButtonReport.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButtonReport.FlatAppearance.BorderSize = 0;
             this.iconButtonReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonReport.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButtonReport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButtonReport.IconChar = FontAwesome.Sharp.IconChar.ExclamationCircle;
             this.iconButtonReport.IconColor = System.Drawing.Color.White;
@@ -279,6 +207,7 @@
             this.iconButtonStats.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButtonStats.FlatAppearance.BorderSize = 0;
             this.iconButtonStats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonStats.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButtonStats.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButtonStats.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
             this.iconButtonStats.IconColor = System.Drawing.Color.White;
@@ -300,6 +229,7 @@
             this.iconButtonCheck.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButtonCheck.FlatAppearance.BorderSize = 0;
             this.iconButtonCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonCheck.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButtonCheck.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButtonCheck.IconChar = FontAwesome.Sharp.IconChar.Plane;
             this.iconButtonCheck.IconColor = System.Drawing.Color.White;
@@ -321,6 +251,7 @@
             this.iconButtonHome.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconButtonHome.FlatAppearance.BorderSize = 0;
             this.iconButtonHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonHome.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconButtonHome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.iconButtonHome.IconChar = FontAwesome.Sharp.IconChar.HomeUser;
             this.iconButtonHome.IconColor = System.Drawing.Color.White;
@@ -336,6 +267,26 @@
             this.iconButtonHome.UseVisualStyleBackColor = false;
             this.iconButtonHome.Click += new System.EventHandler(this.iconButtonHome_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.iconButton1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(269, 150);
+            this.panel1.TabIndex = 10;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Nirmala UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(12, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(159, 141);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Your Safest Bet";
+            // 
             // iconButton1
             // 
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -350,44 +301,117 @@
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // Form3
+            // chart1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(347, 210);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(549, 330);
+            this.chart1.TabIndex = 12;
+            this.chart1.Text = "chart1";
+            // 
+            // chart2
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart2.Legends.Add(legend2);
+            this.chart2.Location = new System.Drawing.Point(949, 220);
+            this.chart2.Name = "chart2";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart2.Series.Add(series2);
+            this.chart2.Size = new System.Drawing.Size(549, 330);
+            this.chart2.TabIndex = 13;
+            this.chart2.Text = "chart2";
+            // 
+            // chart3
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart3.Legends.Add(legend3);
+            this.chart3.Location = new System.Drawing.Point(347, 612);
+            this.chart3.Name = "chart3";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart3.Series.Add(series3);
+            this.chart3.Size = new System.Drawing.Size(549, 330);
+            this.chart3.TabIndex = 14;
+            this.chart3.Text = "chart3";
+            // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.vScrollBar1.Location = new System.Drawing.Point(1648, 150);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(21, 905);
+            this.vScrollBar1.TabIndex = 15;
+            // 
+            // chart4
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chart4.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart4.Legends.Add(legend4);
+            this.chart4.Location = new System.Drawing.Point(949, 612);
+            this.chart4.Name = "chart4";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart4.Series.Add(series4);
+            this.chart4.Size = new System.Drawing.Size(549, 330);
+            this.chart4.TabIndex = 16;
+            this.chart4.Text = "chart4";
+            // 
+            // Form5
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1887, 971);
+            this.ClientSize = new System.Drawing.Size(1669, 1055);
+            this.Controls.Add(this.chart4);
+            this.Controls.Add(this.vScrollBar1);
+            this.Controls.Add(this.chart3);
+            this.Controls.Add(this.chart2);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.panelTitle);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.panelMenu);
-            this.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Nirmala UI Semilight", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.Name = "Form3";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Welcome";
+            this.Name = "Form5";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Statistics";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form3_Load);
-            this.panelMenu.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.Load += new System.EventHandler(this.Form5_Load);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelMenu.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel panelTitle;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
         private FontAwesome.Sharp.IconButton iconButtonReview;
         private FontAwesome.Sharp.IconButton iconButtonAccident;
         private FontAwesome.Sharp.IconButton iconButtonReport;
@@ -397,9 +421,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label8;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.Panel panelTitle;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
     }
 }

@@ -4,31 +4,21 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Frontend
 {
-    public partial class Form3 : Form
+    public partial class Form8 : Form
     {
-        //Fields
-        private int borderSize = 2;
-        private Size formSize; 
-        public Form3()
+        public Form8()
         {
             InitializeComponent();
             CollapseMenu();
         }
 
-        private void Form3_Load(object sender, EventArgs e)
-        {
-            formSize = this.ClientSize;
-        }
-
-
-        private void label2_Click(object sender, EventArgs e)
+        private void Form8_Load(object sender, EventArgs e)
         {
 
         }
@@ -66,7 +56,6 @@ namespace Frontend
         {
             CollapseMenu();
         }
-
         private void iconButtonHome_Click(object sender, EventArgs e)
         {
             Form3 form3 = new Form3();
@@ -107,6 +96,16 @@ namespace Frontend
             Form8 form8 = new Form8();
             this.Hide();
             form8.ShowDialog();
+        }
+
+        private void panelTitle_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

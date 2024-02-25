@@ -1,6 +1,6 @@
 ﻿namespace Frontend
 {
-    partial class Form3
+    partial class Form7
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form7));
             this.panelTitle = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button6 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelMenu = new System.Windows.Forms.Panel();
             this.iconButtonReview = new FontAwesome.Sharp.IconButton();
             this.iconButtonAccident = new FontAwesome.Sharp.IconButton();
             this.iconButtonReport = new FontAwesome.Sharp.IconButton();
             this.iconButtonStats = new FontAwesome.Sharp.IconButton();
             this.iconButtonCheck = new FontAwesome.Sharp.IconButton();
             this.iconButtonHome = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.panelTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panelTitle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panelTitle
+            // 
+            this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
+            this.panelTitle.Controls.Add(this.pictureBox1);
+            this.panelTitle.Controls.Add(this.button6);
+            this.panelTitle.Controls.Add(this.label1);
+            this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitle.Location = new System.Drawing.Point(269, 0);
+            this.panelTitle.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.panelTitle.Name = "panelTitle";
+            this.panelTitle.Size = new System.Drawing.Size(1655, 150);
+            this.panelTitle.TabIndex = 17;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Frontend.Properties.Resources.android_chrome_512x512;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(33, 44);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(89, 69);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.BackgroundImage = global::Frontend.Properties.Resources.icons8_male_user_96__xxhdpi_;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(2055, 33);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(98, 92);
+            this.button6.TabIndex = 7;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label1.Location = new System.Drawing.Point(130, 44);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 59);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "FlySafe";
             // 
             // panelMenu
             // 
@@ -71,8 +122,140 @@
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(269, 971);
-            this.panelMenu.TabIndex = 4;
+            this.panelMenu.Size = new System.Drawing.Size(269, 1055);
+            this.panelMenu.TabIndex = 16;
+            // 
+            // iconButtonReview
+            // 
+            this.iconButtonReview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
+            this.iconButtonReview.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonReview.FlatAppearance.BorderSize = 0;
+            this.iconButtonReview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonReview.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonReview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.iconButtonReview.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.iconButtonReview.IconColor = System.Drawing.Color.White;
+            this.iconButtonReview.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonReview.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonReview.Location = new System.Drawing.Point(0, 550);
+            this.iconButtonReview.Name = "iconButtonReview";
+            this.iconButtonReview.Padding = new System.Windows.Forms.Padding(10);
+            this.iconButtonReview.Size = new System.Drawing.Size(269, 80);
+            this.iconButtonReview.TabIndex = 16;
+            this.iconButtonReview.Tag = "Review";
+            this.iconButtonReview.Text = "Reveiw";
+            this.iconButtonReview.UseVisualStyleBackColor = false;
+            this.iconButtonReview.Click += new System.EventHandler(this.iconButtonReview_Click);
+            // 
+            // iconButtonAccident
+            // 
+            this.iconButtonAccident.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
+            this.iconButtonAccident.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonAccident.FlatAppearance.BorderSize = 0;
+            this.iconButtonAccident.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonAccident.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonAccident.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.iconButtonAccident.IconChar = FontAwesome.Sharp.IconChar.Database;
+            this.iconButtonAccident.IconColor = System.Drawing.Color.White;
+            this.iconButtonAccident.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonAccident.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonAccident.Location = new System.Drawing.Point(0, 470);
+            this.iconButtonAccident.Name = "iconButtonAccident";
+            this.iconButtonAccident.Padding = new System.Windows.Forms.Padding(10);
+            this.iconButtonAccident.Size = new System.Drawing.Size(269, 80);
+            this.iconButtonAccident.TabIndex = 15;
+            this.iconButtonAccident.Tag = "Accidents";
+            this.iconButtonAccident.Text = "Accidents";
+            this.iconButtonAccident.UseVisualStyleBackColor = false;
+            this.iconButtonAccident.Click += new System.EventHandler(this.iconButtonAccident_Click);
+            // 
+            // iconButtonReport
+            // 
+            this.iconButtonReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
+            this.iconButtonReport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonReport.FlatAppearance.BorderSize = 0;
+            this.iconButtonReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonReport.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonReport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.iconButtonReport.IconChar = FontAwesome.Sharp.IconChar.ExclamationCircle;
+            this.iconButtonReport.IconColor = System.Drawing.Color.White;
+            this.iconButtonReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonReport.Location = new System.Drawing.Point(0, 390);
+            this.iconButtonReport.Name = "iconButtonReport";
+            this.iconButtonReport.Padding = new System.Windows.Forms.Padding(10);
+            this.iconButtonReport.Size = new System.Drawing.Size(269, 80);
+            this.iconButtonReport.TabIndex = 14;
+            this.iconButtonReport.Tag = "Report ";
+            this.iconButtonReport.Text = "Report ";
+            this.iconButtonReport.UseVisualStyleBackColor = false;
+            this.iconButtonReport.Click += new System.EventHandler(this.iconButtonReport_Click);
+            // 
+            // iconButtonStats
+            // 
+            this.iconButtonStats.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
+            this.iconButtonStats.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonStats.FlatAppearance.BorderSize = 0;
+            this.iconButtonStats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonStats.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonStats.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.iconButtonStats.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
+            this.iconButtonStats.IconColor = System.Drawing.Color.White;
+            this.iconButtonStats.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonStats.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonStats.Location = new System.Drawing.Point(0, 310);
+            this.iconButtonStats.Name = "iconButtonStats";
+            this.iconButtonStats.Padding = new System.Windows.Forms.Padding(10);
+            this.iconButtonStats.Size = new System.Drawing.Size(269, 80);
+            this.iconButtonStats.TabIndex = 13;
+            this.iconButtonStats.Tag = "Statistics";
+            this.iconButtonStats.Text = "Statistics";
+            this.iconButtonStats.UseVisualStyleBackColor = false;
+            this.iconButtonStats.Click += new System.EventHandler(this.iconButtonStats_Click);
+            // 
+            // iconButtonCheck
+            // 
+            this.iconButtonCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
+            this.iconButtonCheck.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonCheck.FlatAppearance.BorderSize = 0;
+            this.iconButtonCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonCheck.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonCheck.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.iconButtonCheck.IconChar = FontAwesome.Sharp.IconChar.Plane;
+            this.iconButtonCheck.IconColor = System.Drawing.Color.White;
+            this.iconButtonCheck.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonCheck.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonCheck.Location = new System.Drawing.Point(0, 230);
+            this.iconButtonCheck.Name = "iconButtonCheck";
+            this.iconButtonCheck.Padding = new System.Windows.Forms.Padding(10);
+            this.iconButtonCheck.Size = new System.Drawing.Size(269, 80);
+            this.iconButtonCheck.TabIndex = 12;
+            this.iconButtonCheck.Tag = "   Check Flights";
+            this.iconButtonCheck.Text = "   Check Flights";
+            this.iconButtonCheck.UseVisualStyleBackColor = false;
+            this.iconButtonCheck.Click += new System.EventHandler(this.iconButtonCheck_Click);
+            // 
+            // iconButtonHome
+            // 
+            this.iconButtonHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
+            this.iconButtonHome.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonHome.FlatAppearance.BorderSize = 0;
+            this.iconButtonHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonHome.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonHome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.iconButtonHome.IconChar = FontAwesome.Sharp.IconChar.HomeUser;
+            this.iconButtonHome.IconColor = System.Drawing.Color.White;
+            this.iconButtonHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButtonHome.Location = new System.Drawing.Point(0, 150);
+            this.iconButtonHome.Name = "iconButtonHome";
+            this.iconButtonHome.Padding = new System.Windows.Forms.Padding(10);
+            this.iconButtonHome.Size = new System.Drawing.Size(269, 80);
+            this.iconButtonHome.TabIndex = 11;
+            this.iconButtonHome.Tag = "Home";
+            this.iconButtonHome.Text = "Home";
+            this.iconButtonHome.UseVisualStyleBackColor = false;
+            this.iconButtonHome.Click += new System.EventHandler(this.iconButtonHome_Click);
             // 
             // panel1
             // 
@@ -94,15 +277,19 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Your Safest Bet";
             // 
-            // label2
+            // iconButton1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(441, 201);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(189, 38);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Hello, Anushri!";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.AlignJustify;
+            this.iconButton1.IconColor = System.Drawing.Color.White;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.Location = new System.Drawing.Point(199, 47);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(10);
+            this.iconButton1.Size = new System.Drawing.Size(65, 56);
+            this.iconButton1.TabIndex = 1;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // panel3
             // 
@@ -112,10 +299,10 @@
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(448, 268);
+            this.panel3.Location = new System.Drawing.Point(409, 275);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(935, 507);
-            this.panel3.TabIndex = 6;
+            this.panel3.TabIndex = 18;
             // 
             // label7
             // 
@@ -162,232 +349,75 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Last Login";
             // 
-            // panelTitle
+            // comboBox3
             // 
-            this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
-            this.panelTitle.Controls.Add(this.pictureBox1);
-            this.panelTitle.Controls.Add(this.button6);
-            this.panelTitle.Controls.Add(this.label1);
-            this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitle.Location = new System.Drawing.Point(269, 0);
-            this.panelTitle.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(1618, 150);
-            this.panelTitle.TabIndex = 9;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(1190, 185);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(216, 45);
+            this.comboBox3.TabIndex = 19;
             // 
-            // label1
+            // comboBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(130, 44);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 59);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "FlySafe";
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(912, 185);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(216, 45);
+            this.comboBox2.TabIndex = 18;
             // 
-            // pictureBox1
+            // comboBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Frontend.Properties.Resources.android_chrome_512x512;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(33, 44);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(89, 69);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(639, 185);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(216, 45);
+            this.comboBox1.TabIndex = 17;
             // 
-            // button6
+            // dateTimePicker1
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.BackgroundImage = global::Frontend.Properties.Resources.icons8_male_user_96__xxhdpi_;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(1497, 33);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(98, 92);
-            this.button6.TabIndex = 7;
-            this.button6.UseVisualStyleBackColor = true;
+            this.dateTimePicker1.Location = new System.Drawing.Point(322, 187);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(281, 43);
+            this.dateTimePicker1.TabIndex = 16;
             // 
-            // iconButtonReview
-            // 
-            this.iconButtonReview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
-            this.iconButtonReview.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButtonReview.FlatAppearance.BorderSize = 0;
-            this.iconButtonReview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonReview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.iconButtonReview.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            this.iconButtonReview.IconColor = System.Drawing.Color.White;
-            this.iconButtonReview.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonReview.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonReview.Location = new System.Drawing.Point(0, 550);
-            this.iconButtonReview.Name = "iconButtonReview";
-            this.iconButtonReview.Padding = new System.Windows.Forms.Padding(10);
-            this.iconButtonReview.Size = new System.Drawing.Size(269, 80);
-            this.iconButtonReview.TabIndex = 16;
-            this.iconButtonReview.Tag = "Review";
-            this.iconButtonReview.Text = "Reveiw";
-            this.iconButtonReview.UseVisualStyleBackColor = false;
-            this.iconButtonReview.Click += new System.EventHandler(this.iconButtonReview_Click);
-            // 
-            // iconButtonAccident
-            // 
-            this.iconButtonAccident.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
-            this.iconButtonAccident.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButtonAccident.FlatAppearance.BorderSize = 0;
-            this.iconButtonAccident.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonAccident.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.iconButtonAccident.IconChar = FontAwesome.Sharp.IconChar.Database;
-            this.iconButtonAccident.IconColor = System.Drawing.Color.White;
-            this.iconButtonAccident.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonAccident.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonAccident.Location = new System.Drawing.Point(0, 470);
-            this.iconButtonAccident.Name = "iconButtonAccident";
-            this.iconButtonAccident.Padding = new System.Windows.Forms.Padding(10);
-            this.iconButtonAccident.Size = new System.Drawing.Size(269, 80);
-            this.iconButtonAccident.TabIndex = 15;
-            this.iconButtonAccident.Tag = "Accidents";
-            this.iconButtonAccident.Text = "Accidents";
-            this.iconButtonAccident.UseVisualStyleBackColor = false;
-            this.iconButtonAccident.Click += new System.EventHandler(this.iconButtonAccident_Click);
-            // 
-            // iconButtonReport
-            // 
-            this.iconButtonReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
-            this.iconButtonReport.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButtonReport.FlatAppearance.BorderSize = 0;
-            this.iconButtonReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonReport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.iconButtonReport.IconChar = FontAwesome.Sharp.IconChar.ExclamationCircle;
-            this.iconButtonReport.IconColor = System.Drawing.Color.White;
-            this.iconButtonReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonReport.Location = new System.Drawing.Point(0, 390);
-            this.iconButtonReport.Name = "iconButtonReport";
-            this.iconButtonReport.Padding = new System.Windows.Forms.Padding(10);
-            this.iconButtonReport.Size = new System.Drawing.Size(269, 80);
-            this.iconButtonReport.TabIndex = 14;
-            this.iconButtonReport.Tag = "Report ";
-            this.iconButtonReport.Text = "Report ";
-            this.iconButtonReport.UseVisualStyleBackColor = false;
-            this.iconButtonReport.Click += new System.EventHandler(this.iconButtonReport_Click);
-            // 
-            // iconButtonStats
-            // 
-            this.iconButtonStats.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
-            this.iconButtonStats.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButtonStats.FlatAppearance.BorderSize = 0;
-            this.iconButtonStats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonStats.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.iconButtonStats.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
-            this.iconButtonStats.IconColor = System.Drawing.Color.White;
-            this.iconButtonStats.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonStats.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonStats.Location = new System.Drawing.Point(0, 310);
-            this.iconButtonStats.Name = "iconButtonStats";
-            this.iconButtonStats.Padding = new System.Windows.Forms.Padding(10);
-            this.iconButtonStats.Size = new System.Drawing.Size(269, 80);
-            this.iconButtonStats.TabIndex = 13;
-            this.iconButtonStats.Tag = "Statistics";
-            this.iconButtonStats.Text = "Statistics";
-            this.iconButtonStats.UseVisualStyleBackColor = false;
-            this.iconButtonStats.Click += new System.EventHandler(this.iconButtonStats_Click);
-            // 
-            // iconButtonCheck
-            // 
-            this.iconButtonCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
-            this.iconButtonCheck.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButtonCheck.FlatAppearance.BorderSize = 0;
-            this.iconButtonCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonCheck.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.iconButtonCheck.IconChar = FontAwesome.Sharp.IconChar.Plane;
-            this.iconButtonCheck.IconColor = System.Drawing.Color.White;
-            this.iconButtonCheck.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonCheck.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonCheck.Location = new System.Drawing.Point(0, 230);
-            this.iconButtonCheck.Name = "iconButtonCheck";
-            this.iconButtonCheck.Padding = new System.Windows.Forms.Padding(10);
-            this.iconButtonCheck.Size = new System.Drawing.Size(269, 80);
-            this.iconButtonCheck.TabIndex = 12;
-            this.iconButtonCheck.Tag = "   Check Flights";
-            this.iconButtonCheck.Text = "   Check Flights";
-            this.iconButtonCheck.UseVisualStyleBackColor = false;
-            this.iconButtonCheck.Click += new System.EventHandler(this.iconButtonCheck_Click);
-            // 
-            // iconButtonHome
-            // 
-            this.iconButtonHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
-            this.iconButtonHome.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButtonHome.FlatAppearance.BorderSize = 0;
-            this.iconButtonHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonHome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.iconButtonHome.IconChar = FontAwesome.Sharp.IconChar.HomeUser;
-            this.iconButtonHome.IconColor = System.Drawing.Color.White;
-            this.iconButtonHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButtonHome.Location = new System.Drawing.Point(0, 150);
-            this.iconButtonHome.Name = "iconButtonHome";
-            this.iconButtonHome.Padding = new System.Windows.Forms.Padding(10);
-            this.iconButtonHome.Size = new System.Drawing.Size(269, 80);
-            this.iconButtonHome.TabIndex = 11;
-            this.iconButtonHome.Tag = "Home";
-            this.iconButtonHome.Text = "Home";
-            this.iconButtonHome.UseVisualStyleBackColor = false;
-            this.iconButtonHome.Click += new System.EventHandler(this.iconButtonHome_Click);
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.AlignJustify;
-            this.iconButton1.IconColor = System.Drawing.Color.White;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(199, 47);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(10);
-            this.iconButton1.Size = new System.Drawing.Size(65, 56);
-            this.iconButton1.TabIndex = 1;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
-            // 
-            // Form3
+            // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1887, 971);
-            this.Controls.Add(this.panelTitle);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.panelTitle);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.dateTimePicker1);
             this.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.Name = "Form3";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Welcome";
+            this.Name = "Form7";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Accidents";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form3_Load);
+            this.Load += new System.EventHandler(this.Form7_Load);
+            this.panelTitle.ResumeLayout(false);
+            this.panelTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panelTitle.ResumeLayout(false);
-            this.panelTitle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel panelTitle;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
         private FontAwesome.Sharp.IconButton iconButtonReview;
         private FontAwesome.Sharp.IconButton iconButtonAccident;
         private FontAwesome.Sharp.IconButton iconButtonReport;
@@ -397,9 +427,15 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label8;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.Panel panelTitle;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
