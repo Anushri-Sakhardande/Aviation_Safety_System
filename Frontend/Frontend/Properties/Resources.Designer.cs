@@ -73,6 +73,16 @@ namespace Frontend.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dm4uz3_foekoe {
+            get {
+                object obj = ResourceManager.GetObject("dm4uz3-foekoe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap favicon_32x32 {
             get {
                 object obj = ResourceManager.GetObject("favicon-32x32", resourceCulture);
@@ -106,6 +116,26 @@ namespace Frontend.Properties {
         internal static System.Drawing.Bitmap pexels_pixabay_62623 {
             get {
                 object obj = ResourceManager.GetObject("pexels-pixabay-62623", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sunexpress_airplane {
+            get {
+                object obj = ResourceManager.GetObject("sunexpress-airplane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tumblr_o6in6mGzxr1ud7phlo1_500 {
+            get {
+                object obj = ResourceManager.GetObject("tumblr_o6in6mGzxr1ud7phlo1_500", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

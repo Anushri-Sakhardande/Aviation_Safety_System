@@ -4,36 +4,27 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Frontend
 {
-    public partial class Form3 : Form
+    public partial class Form5 : Form
     {
-        //Fields
-        private int borderSize = 2;
-        private Size formSize; 
-        public Form3()
+        public Form5()
         {
             InitializeComponent();
             CollapseMenu();
         }
 
-        private void Form3_Load(object sender, EventArgs e)
-        {
-            formSize = this.ClientSize;
-        }
-
-
-        private void label2_Click(object sender, EventArgs e)
+        private void Form5_Load(object sender, EventArgs e)
         {
 
         }
 
         //!!! REPLICABLE CODE
+
         private void CollapseMenu()
         {
             if (this.panelMenu.Width > 200) //Collapse menu
