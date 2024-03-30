@@ -53,6 +53,7 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -63,6 +64,7 @@
             // panelTitle
             // 
             this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
+            this.panelTitle.Controls.Add(this.button1);
             this.panelTitle.Controls.Add(this.pictureBox1);
             this.panelTitle.Controls.Add(this.button6);
             this.panelTitle.Controls.Add(this.label1);
@@ -380,6 +382,19 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(281, 43);
             this.dateTimePicker1.TabIndex = 16;
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackgroundImage = global::Frontend.Properties.Resources.icons8_male_user_96__xxhdpi_;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(1509, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 92);
+            this.button1.TabIndex = 20;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
@@ -437,5 +452,6 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button1;
     }
 }

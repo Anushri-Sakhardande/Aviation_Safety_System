@@ -44,6 +44,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.submitbutton = new System.Windows.Forms.Button();
@@ -54,7 +55,7 @@
             this.emailtextBox = new System.Windows.Forms.TextBox();
             this.nametextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -65,6 +66,7 @@
             // panelTitle
             // 
             this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(69)))));
+            this.panelTitle.Controls.Add(this.button1);
             this.panelTitle.Controls.Add(this.pictureBox1);
             this.panelTitle.Controls.Add(this.button6);
             this.panelTitle.Controls.Add(this.label1);
@@ -312,6 +314,17 @@
             this.panel2.Size = new System.Drawing.Size(1039, 776);
             this.panel2.TabIndex = 16;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(59, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 38);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Airplane";
+            // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -418,16 +431,18 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Departing";
             // 
-            // label2
+            // button1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(59, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 38);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Airplane";
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackgroundImage = global::Frontend.Properties.Resources.icons8_male_user_96__xxhdpi_;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(1505, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 92);
+            this.button1.TabIndex = 17;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form6
             // 
@@ -484,5 +499,6 @@
         private System.Windows.Forms.TextBox nametextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }

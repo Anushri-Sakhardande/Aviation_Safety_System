@@ -32,21 +32,18 @@
             this.panelTitle = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.emailtextBox = new System.Windows.Forms.TextBox();
+            this.loginbutton = new System.Windows.Forms.Button();
             this.passtextBox = new System.Windows.Forms.TextBox();
             this.signbutton = new System.Windows.Forms.Button();
-            this.emailtextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.loginbutton = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.iconToolStripButton1 = new FontAwesome.Sharp.IconToolStripButton();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitle
@@ -83,16 +80,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "FlySafe";
             // 
-            // label2
+            // pictureBox2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(53, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 38);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Email";
+            this.pictureBox2.Image = global::Frontend.Properties.Resources.tumblr_o6in6mGzxr1ud7phlo1_500;
+            this.pictureBox2.Location = new System.Drawing.Point(285, 283);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(513, 421);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
             // 
             // label3
             // 
@@ -105,30 +102,6 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Password";
             // 
-            // passtextBox
-            // 
-            this.passtextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passtextBox.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passtextBox.Location = new System.Drawing.Point(60, 182);
-            this.passtextBox.Name = "passtextBox";
-            this.passtextBox.Size = new System.Drawing.Size(376, 36);
-            this.passtextBox.TabIndex = 3;
-            this.passtextBox.UseSystemPasswordChar = true;
-            // 
-            // signbutton
-            // 
-            this.signbutton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.signbutton.FlatAppearance.BorderSize = 0;
-            this.signbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.signbutton.Font = new System.Drawing.Font("Nirmala UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signbutton.Location = new System.Drawing.Point(188, 338);
-            this.signbutton.Name = "signbutton";
-            this.signbutton.Size = new System.Drawing.Size(126, 47);
-            this.signbutton.TabIndex = 3;
-            this.signbutton.Text = "Sign Up";
-            this.signbutton.UseVisualStyleBackColor = false;
-            this.signbutton.Click += new System.EventHandler(this.button2_Click);
-            // 
             // emailtextBox
             // 
             this.emailtextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -137,21 +110,6 @@
             this.emailtextBox.Name = "emailtextBox";
             this.emailtextBox.Size = new System.Drawing.Size(376, 36);
             this.emailtextBox.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.signbutton);
-            this.panel2.Controls.Add(this.passtextBox);
-            this.panel2.Controls.Add(this.loginbutton);
-            this.panel2.Controls.Add(this.emailtextBox);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(513, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(511, 421);
-            this.panel2.TabIndex = 4;
             // 
             // loginbutton
             // 
@@ -167,43 +125,55 @@
             this.loginbutton.UseVisualStyleBackColor = false;
             this.loginbutton.Click += new System.EventHandler(this.loginbutton_Click);
             // 
-            // tableLayoutPanel1
+            // passtextBox
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox2, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(504, 288);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1027, 421);
-            this.tableLayoutPanel1.TabIndex = 5;
+            this.passtextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passtextBox.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passtextBox.Location = new System.Drawing.Point(60, 182);
+            this.passtextBox.Name = "passtextBox";
+            this.passtextBox.Size = new System.Drawing.Size(376, 36);
+            this.passtextBox.TabIndex = 3;
+            this.passtextBox.UseSystemPasswordChar = true;
             // 
-            // pictureBox2
+            // signbutton
             // 
-            this.pictureBox2.Image = global::Frontend.Properties.Resources.tumblr_o6in6mGzxr1ud7phlo1_500;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(513, 421);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
+            this.signbutton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.signbutton.FlatAppearance.BorderSize = 0;
+            this.signbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.signbutton.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signbutton.Location = new System.Drawing.Point(160, 321);
+            this.signbutton.Name = "signbutton";
+            this.signbutton.Size = new System.Drawing.Size(179, 47);
+            this.signbutton.TabIndex = 3;
+            this.signbutton.Text = "New user? Sign Up";
+            this.signbutton.UseVisualStyleBackColor = false;
+            this.signbutton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // iconToolStripButton1
+            // label2
             // 
-            this.iconToolStripButton1.AccessibleName = "iconToolStripButton1";
-            this.iconToolStripButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconToolStripButton1.IconColor = System.Drawing.Color.Black;
-            this.iconToolStripButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconToolStripButton1.Name = "iconToolStripButton1";
-            this.iconToolStripButton1.Size = new System.Drawing.Size(23, 23);
-            this.iconToolStripButton1.Text = "iconToolStripButton1";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(53, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 38);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Email";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.signbutton);
+            this.panel2.Controls.Add(this.passtextBox);
+            this.panel2.Controls.Add(this.loginbutton);
+            this.panel2.Controls.Add(this.emailtextBox);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Location = new System.Drawing.Point(798, 283);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(538, 421);
+            this.panel2.TabIndex = 4;
             // 
             // Form1
             // 
@@ -212,8 +182,9 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1924, 692);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(1924, 895);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelTitle);
             this.Font = new System.Drawing.Font("Nirmala UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -225,10 +196,9 @@
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -237,17 +207,16 @@
 
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox passtextBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button signbutton;
-        private System.Windows.Forms.TextBox emailtextBox;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button loginbutton;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private FontAwesome.Sharp.IconToolStripButton iconToolStripButton1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button signbutton;
+        private System.Windows.Forms.TextBox passtextBox;
+        private System.Windows.Forms.Button loginbutton;
+        private System.Windows.Forms.TextBox emailtextBox;
+        private System.Windows.Forms.Label label3;
     }
 }
 

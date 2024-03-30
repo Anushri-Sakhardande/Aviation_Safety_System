@@ -1,30 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using Oracle.ManagedDataAccess.Client;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Frontend
 {
     public partial class Form3 : Form
     {
+        OracleConnection conn;
+        OracleDataAdapter da;
+
         //Fields
         private int borderSize = 2;
-        private Size formSize; 
-        public Form3()
+        private Size formSize;
+        string user;
+        public Form3(string user)
         {
             InitializeComponent();
             CollapseMenu();
+            this.user = user;
         }
 
         private void Form3_Load(object sender, EventArgs e)
         {
             formSize = this.ClientSize;
+            string connectionString = "Data Source=LAPTOP-B2QU8IP2;Persist Security Info=True;User ID=c##flysafe;Password=flysafeadminanujansin;";
+            conn = new OracleConnection(connectionString);
+            conn.Open();
         }
 
 
