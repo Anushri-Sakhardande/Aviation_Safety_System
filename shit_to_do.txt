@@ -1,0 +1,147 @@
+1. CREATE THE REQUIRED TABLE IN SQLPLUS
+
+2. CREATE A CTL FILE
+
+	LOAD DATA
+	INFILE 'D:\Aviation\accidents_unique.csv'
+	INTO TABLE FATALITIES_DETAILS
+	FIELDS TERMINATED BY ',' optionally enclosed by '"'
+	(
+		accd_date DATE 'MM-DD-YYYY',
+		Month,
+		Year,
+		type,
+		registration,
+		operator,
+		Fatalities,
+		location,
+		cat,
+		Country,
+		Manufacturer,
+		mil_com
+	)
+
+3. RUN THIS CODE IN COMMAND PROMPT
+	sqlldr scott/helloworld control=load_data.ctl
+
+
+LOAD DATA
+	INFILE 'C:\Users\Jahnavi\Downloads\aircraft.csv'
+	INTO TABLE AIRCRAFT
+	FIELDS TERMINATED BY ',' optionally enclosed by '"'
+	(
+		admin_id,
+		aircraft_id,
+		type,
+		Manufacturer,
+		Mil_Com
+		
+	)
+
+create table AIRCRAFT(
+		admin_id varchar(3),
+		aircraft_id int,
+		type varchar(40),
+		manufacturer varchar(25),
+		mil_Com varchar(3),
+		primary key(aircraft_id)
+);
+
+	LOAD DATA
+	INFILE 'C:\Users\Jahnavi\Downloads\registration_1.csv'
+	INTO TABLE REGISTRATION
+	FIELDS TERMINATED BY ',' optionally enclosed by '"'
+	(
+		admin_id,
+		registration_id,
+		Manufacturer,
+		registration,
+		aircraft_id
+	)
+
+create table REGISTRATION(
+	admin_id varchar(3),
+	registration_id int,
+	manufacturer varchar(25),
+	registration varchar(15),
+	aircraft_id int,
+	primary key(admin_id, registration_id),
+	foreign key (aircraft_id) references AIRCRAFT);
+
+LOAD DATA
+	INFILE 'C:\Users\Jahnavi\Downloads\incident.csv'
+	INTO TABLE REGISTRATION
+	FIELDS TERMINATED BY ',' optionally enclosed by '"'
+	(
+		admin_id,Acc_id,accd_date,location,operator_id,Fatalities,registration_id,cat,Country,aircraft_id
+
+	)
+create table INCIDENT(
+		admin_id varchar(3),
+		accident_id int,
+		accd_date date,
+		location  varchar(30),
+		operator_id int,
+		fatalities int,
+		registration_id int,
+		cat varchar(10),
+		country varchar(25),
+		aircraft_id int,
+		foreign key (admin_id, registration_id) references  REGISTRATION,
+		foreign key(aircraft_id) references AIRCRAFT,
+		primary key( accident_id));
+create table REPORT(
+    user_id varchar2(3),
+    report_id varchar2(5),
+    report_datetime timestamp,
+    manufacturer varchar2(25),
+    registration varchar2(15),
+    type varchar2(40),
+    mil_Com varchar2(3),
+    accident_date date,
+    operator varchar2(15),
+    Fatalities int,
+    location varchar2(30),
+    country varchar2(25),
+    cat varchar2(10),
+    primary key(user_id, report_id)
+);
+
+insert into REPORT values(
+    'u01',
+    'rep01',
+    TO_TIMESTAMP('2024-03-31 15:45:00', 'YYYY-MM-DD HH24:MI:SS'), -- Convert to timestamp
+    'Beriev',
+    '876E-21',
+    'Curtiss R-5C-1 (C-46)',
+    'M',
+    TO_DATE('01/22/2023', 'MM/DD/YYYY'), -- Convert to date
+    'Dunkin',
+    23,
+    'location1',
+    'USA',
+    'A1'
+);
+
+create table Logrecord(
+user_id integer, 
+login timestamp,
+primary key (user_id,));
+
+insert into Logrecord values( 'usr1',TO_DATE('01/22/2023', 'MM/DD/YYYY'));
+
+create table ADMIN(
+user_id integer,
+admin_id integer,
+primary key(user_id,admin_id)
+constraint fkey1 foreign key(user_id) references user_detail);
+
+create table user_detail (
+user_id integer,
+passhash varchar(144),
+name varchar(50),
+phone integer,
+points integer,
+email varchar(320),
+primary key(user_id)
+);

@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
+using System.Xml.Linq;
 
 namespace Frontend
 {
@@ -21,19 +22,19 @@ namespace Frontend
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            //TODO:string connectionString = ConfigurationManager.ConnectionStrings["Myconnectionstring"]?.ConnectionString;
-            string connectionString = "Data Source=LAPTOP-B2QU8IP2;Persist Security Info=True;User ID=c##flysafe;Password=flysafeadminanujansin;";
+            string connectionString = Properties.Settings.Default.Connect;
             conn = new OracleConnection(connectionString);
             conn.Open();
         }
 
         private void loginbutton_Click(object sender, EventArgs e)
         {
-            string username = SanitizeSql(nametextBox.Text);
+            string name = SanitizeSql(nametextBox.Text);
             string email = SanitizeSql(emailtextBox.Text);
             string password = SanitizeSql(passtextBox.Text);
             string confirm = SanitizeSql(confirmtextBox.Text);   
             string phone = SanitizeSql(phonetextBox.Text);
+            int points = 0;
 
             //check if user already exists
             string query = "select * from user_detail where email= '" + email + "'";
@@ -53,26 +54,35 @@ namespace Frontend
                 }
                 try
                 {
+                    //get userid
+                    query = "SELECT count(*) FROM user_detail";
+                    OracleCommand cmd = new OracleCommand(query, conn);
+                    int userId = Convert.ToInt32(cmd.ExecuteScalar())+1;
+
+
+                    // Encrypt the password 
                     byte[] salt;
                     new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
                     var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
-
                     byte[] hash = pbkdf2.GetBytes(20);
                     byte[] hashBytes = new byte[36];
-
                     Array.Copy(salt, 0, hashBytes, 0, 16);
                     Array.Copy(hash, 0, hashBytes, 16,20);
                     string savedPasswordHash = Convert.ToBase64String(hashBytes);
 
+
                     cmd = new OracleCommand();
                     cmd.Connection = conn;
-                    cmd.CommandText = "INSERT INTO user_detail (username, password, email, phoneno) VALUES (:username, :password, :email, :phone)";
+                    cmd.CommandText = "INSERT INTO user_detail (user_id, passhash, name, phone, points, email) VALUES (:userid, :passhash, :username, :phone, :points, :email)";
 
                     // Add parameters to the command
-                    cmd.Parameters.Add(":username", OracleDbType.Varchar2).Value = username;
-                    cmd.Parameters.Add(":password", OracleDbType.Varchar2).Value = password;
+                    cmd.Parameters.Add(":userid", OracleDbType.Int32).Value = userId;
+                    cmd.Parameters.Add(":passhash", OracleDbType.Varchar2).Value = savedPasswordHash;
+                    cmd.Parameters.Add(":username", OracleDbType.Varchar2).Value = name;
+                    cmd.Parameters.Add(":phone", OracleDbType.Int32).Value = phone;
+                    cmd.Parameters.Add(":points", OracleDbType.Int32).Value = points;
                     cmd.Parameters.Add(":email", OracleDbType.Varchar2).Value = email;
-                    cmd.Parameters.Add(":phone", OracleDbType.Int64).Value = phone;
+                    //cmd.BindByName = true;
 
                     // Execute the query
                     cmd.ExecuteNonQuery();
@@ -82,10 +92,12 @@ namespace Frontend
                     Form1 ob = new Form1();
                     this.Hide();
                     ob.ShowDialog();
+                    Close();
                 }
-                catch
+                catch(Exception ex)
                 {
                     MessageBox.Show("Error encountered:(\nTry Again");
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
@@ -116,6 +128,7 @@ namespace Frontend
 
         private void clearText()
         {
+            // Clear textboxes in case of error
             this.nametextBox.Text="";
             this.emailtextBox.Text = "";
             this.passtextBox.Text = "";

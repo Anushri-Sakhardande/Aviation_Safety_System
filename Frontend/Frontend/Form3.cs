@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using Oracle.ManagedDataAccess.Client;
 using System.Drawing;
 using System.Linq;
@@ -9,25 +10,59 @@ namespace Frontend
     public partial class Form3 : Form
     {
         OracleConnection conn;
+        OracleCommand cmd;
         OracleDataAdapter da;
+        DataTable dt;
 
-        //Fields
-        private int borderSize = 2;
-        private Size formSize;
-        string user;
-        public Form3(string user)
+        
+        public Form3(DataTable dt)
         {
             InitializeComponent();
             CollapseMenu();
-            this.user = user;
+            this.dt = dt;
         }
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            formSize = this.ClientSize;
-            string connectionString = "Data Source=LAPTOP-B2QU8IP2;Persist Security Info=True;User ID=c##flysafe;Password=flysafeadminanujansin;";
+            string connectionString = Properties.Settings.Default.Connect;
             conn = new OracleConnection(connectionString);
             conn.Open();
+
+            // Display the name
+            nameLabel.Text = "Hello " + dt.Rows[0]["name"];
+
+            // Display last login
+            string query = "SELECT MAX(login) AS recent_login FROM log_record";
+            cmd = new OracleCommand(query, conn);
+            object result = cmd.ExecuteScalar();
+            DateTime mostRecentLogin = Convert.ToDateTime(result);
+            if (result != null && result != DBNull.Value)
+            {
+                loginsLabel.Text += " "+mostRecentLogin;
+            }
+            else
+            {
+                loginsLabel.Text = "Welcome new user";
+            }
+
+            //update the log record
+            query = "INSERT INTO log_record (user_id, login) VALUES (:userId, SYSTIMESTAMP)";
+            cmd = new OracleCommand(query, conn);
+            cmd.Parameters.Add(":userId", OracleDbType.Int32).Value = dt.Rows[0]["user_id"];
+
+            //check if admin
+            int userId = Convert.ToInt32(dt.Rows[0]["user_id"]);
+            query = "SELECT * FROM admin WHERE user_id = :userId";
+            cmd = new OracleCommand(query, conn);
+            cmd.Parameters.Add(":userId", OracleDbType.Int32).Value = userId;
+            da = new OracleDataAdapter(cmd);
+
+            DataTable dta = new DataTable();
+            da.Fill(dta);
+            if (dta.Rows.Count == 1)
+            {
+                iconButtonReview.Visible = true;
+            }
         }
 
 
@@ -72,44 +107,51 @@ namespace Frontend
 
         private void iconButtonHome_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3();
+            Form3 form3 = new Form3(dt);
             this.Hide();
             form3.ShowDialog();
+            Close();
         }
 
         private void iconButtonCheck_Click(object sender, EventArgs e)
         {
-            Form4 form4 = new Form4();
+            Form4 form4 = new Form4(dt);
             this.Hide();
             form4.ShowDialog();
+            Close();
         }
 
         private void iconButtonStats_Click(object sender, EventArgs e)
         {
-            Form5 form5 = new Form5();
+            Form5 form5 = new Form5(dt);
             this.Hide();
             form5.ShowDialog();
+            Close();
         }
 
         private void iconButtonReport_Click(object sender, EventArgs e)
         {
-            Form6 form6 = new Form6();
+            Form6 form6 = new Form6(dt);
             this.Hide();
             form6.ShowDialog();
+            Close();
         }
 
         private void iconButtonAccident_Click(object sender, EventArgs e)
         {
-            Form7 form7 = new Form7();
+            Form7 form7 = new Form7(dt);
             this.Hide();
             form7.ShowDialog();
+            Close();
         }
 
         private void iconButtonReview_Click(object sender, EventArgs e)
         {
-            Form8 form8 = new Form8();
+            
+            Form8 form8 = new Form8(dt);
             this.Hide();
             form8.ShowDialog();
+            Close();
         }
     }
 }

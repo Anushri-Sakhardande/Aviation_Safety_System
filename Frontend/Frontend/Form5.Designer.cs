@@ -153,8 +153,9 @@
             this.iconButtonReview.Size = new System.Drawing.Size(269, 80);
             this.iconButtonReview.TabIndex = 16;
             this.iconButtonReview.Tag = "Review";
-            this.iconButtonReview.Text = "Reveiw";
+            this.iconButtonReview.Text = "Review";
             this.iconButtonReview.UseVisualStyleBackColor = false;
+            this.iconButtonReview.Visible = false;
             this.iconButtonReview.Click += new System.EventHandler(this.iconButtonReview_Click);
             // 
             // iconButtonAccident

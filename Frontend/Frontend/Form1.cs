@@ -3,8 +3,8 @@ using System.Data;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
-using System.Configuration;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography;
 
 namespace Frontend
 {
@@ -31,15 +31,42 @@ namespace Frontend
             string email = SanitizeSql(emailtextBox.Text);
             string password = SanitizeSql(passtextBox.Text); 
 
-            string query = "select * from user_detail where email= '"+email+"' and password= '"+password+"'";
-            da = new OracleDataAdapter(query,conn);
+            string query = "select * from user_detail where email= :email";
+            OracleCommand cmd = new OracleCommand(query, conn);
+            cmd.Parameters.Add(":email", OracleDbType.Varchar2).Value = email;
+            da = new OracleDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
             if (dt.Rows.Count == 1)
             {
-                Form3 form3 = new Form3(dt);
-                this.Hide();
-                form3.ShowDialog();
+                //decrypt the password
+                 string savedPasswordHash = dt.Rows[0][1].ToString();
+                 byte[] hashBytes = Convert.FromBase64String(savedPasswordHash);
+                byte[] salt = new byte[16];
+                Array.Copy(hashBytes, 0, salt, 0, 16);
+                var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
+                byte[] hash = pbkdf2.GetBytes(20);
+
+                //compare results
+                int ok = 1;
+                for (int i = 0; i < 20; i++)
+                    if (hashBytes[i + 16] != hash[i])
+                        ok = 0;
+                //if there are no differences between the strings, grant access
+                if (ok == 1)
+                {
+                    
+                    // Execute the query
+                    cmd.ExecuteNonQuery();
+                    Form3 ob = new Form3(dt);
+                    this.Hide();
+                    ob.ShowDialog();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect Password");
+                }
             }
             else
             {
@@ -50,8 +77,7 @@ namespace Frontend
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //TODO:string connectionString = ConfigurationManager.ConnectionStrings["Myconnectionstring"]?.ConnectionString;
-            string connectionString = "Data Source=LAPTOP-B2QU8IP2;Persist Security Info=True;User ID=c##flysafe;Password=flysafeadminanujansin;";
+            string connectionString = Properties.Settings.Default.Connect;
             conn = new OracleConnection(connectionString);
             conn.Open();
         }
