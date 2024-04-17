@@ -2,11 +2,9 @@
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
-using System.Configuration;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
-using System.Xml.Linq;
 
 namespace Frontend
 {
@@ -48,62 +46,73 @@ namespace Frontend
             }
             else
             {
-                if(password==confirm && !IsValidEmail(email) && !IsValidPassword(password))
+                if (password != confirm)
+                {
+                    MessageBox.Show("Password and Confirm Password do not match");
+                    clearText();
+                }
+                else if (!IsValidEmail(email) || !IsValidPassword(password))
                 {
                     MessageBox.Show("Incorrect Email or Password");
+                    clearText();
                 }
-                try
+                else
                 {
-                    //get userid
-                    query = "SELECT count(*) FROM user_detail";
-                    OracleCommand cmd = new OracleCommand(query, conn);
-                    int userId = Convert.ToInt32(cmd.ExecuteScalar())+1;
+                    try
+                    {
+                        //get userid
+                        query = "SELECT count(*) FROM user_detail";
+                        OracleCommand cmd = new OracleCommand(query, conn);
+                        int userId = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
 
 
-                    // Encrypt the password 
-                    byte[] salt;
-                    new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
-                    var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
-                    byte[] hash = pbkdf2.GetBytes(20);
-                    byte[] hashBytes = new byte[36];
-                    Array.Copy(salt, 0, hashBytes, 0, 16);
-                    Array.Copy(hash, 0, hashBytes, 16,20);
-                    string savedPasswordHash = Convert.ToBase64String(hashBytes);
+                        // Encrypt the password 
+                        byte[] salt;
+                        new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+                        var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
+                        byte[] hash = pbkdf2.GetBytes(20);
+                        byte[] hashBytes = new byte[36];
+                        Array.Copy(salt, 0, hashBytes, 0, 16);
+                        Array.Copy(hash, 0, hashBytes, 16, 20);
+                        string savedPasswordHash = Convert.ToBase64String(hashBytes);
 
 
-                    cmd = new OracleCommand();
-                    cmd.Connection = conn;
-                    cmd.CommandText = "INSERT INTO user_detail (user_id, passhash, name, phone, points, email) VALUES (:userid, :passhash, :username, :phone, :points, :email)";
+                        cmd = new OracleCommand();
+                        cmd.Connection = conn;
+                        cmd.CommandText = "INSERT INTO user_detail (user_id, passhash, name, phone, points, email) VALUES (:userid, :passhash, :username, :phone, :points, :email)";
 
-                    // Add parameters to the command
-                    cmd.Parameters.Add(":userid", OracleDbType.Int32).Value = userId;
-                    cmd.Parameters.Add(":passhash", OracleDbType.Varchar2).Value = savedPasswordHash;
-                    cmd.Parameters.Add(":username", OracleDbType.Varchar2).Value = name;
-                    cmd.Parameters.Add(":phone", OracleDbType.Int32).Value = phone;
-                    cmd.Parameters.Add(":points", OracleDbType.Int32).Value = points;
-                    cmd.Parameters.Add(":email", OracleDbType.Varchar2).Value = email;
-                    //cmd.BindByName = true;
+                        // Add parameters to the command
+                        cmd.Parameters.Add(":userid", OracleDbType.Int32).Value = userId;
+                        cmd.Parameters.Add(":passhash", OracleDbType.Varchar2).Value = savedPasswordHash;
+                        cmd.Parameters.Add(":username", OracleDbType.Varchar2).Value = name;
+                        cmd.Parameters.Add(":phone", OracleDbType.Int32).Value = phone;
+                        cmd.Parameters.Add(":points", OracleDbType.Int32).Value = points;
+                        cmd.Parameters.Add(":email", OracleDbType.Varchar2).Value = email;
+                        //cmd.BindByName = true;
 
-                    // Execute the query
-                    cmd.ExecuteNonQuery();
+                        // Execute the query
+                        cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("User Created");
+                        MessageBox.Show("User Created");
 
-                    Form1 ob = new Form1();
-                    this.Hide();
-                    ob.ShowDialog();
-                    Close();
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("Error encountered:(\nTry Again");
-                    MessageBox.Show(ex.Message);
+                        Form1 ob = new Form1();
+                        this.Hide();
+                        ob.ShowDialog();
+                        Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error encountered:(\nTry Again");
+                        MessageBox.Show(ex.Message);
+                        clearText();
+                    }
                 }
             }
         }
 
         private static bool IsValidEmail(string email)
         {
+            // Consider using a more comprehensive email validation regex or a dedicated library
             string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             return Regex.IsMatch(email, pattern);
         }
@@ -117,14 +126,11 @@ namespace Frontend
 
         public static string SanitizeSql(string input)
         {
-            // Define a regular expression to match potentially dangerous SQL characters
+            // Using blacklisting to remove potentially dangerous characters; consider parameterized queries for better security
             string pattern = @"[-;'\""]";
-
-            // Replace potentially dangerous characters with empty strings
-            string sanitizedInput = Regex.Replace(input, pattern, string.Empty);
-
-            return sanitizedInput;
+            return Regex.Replace(input, pattern, string.Empty);
         }
+
 
         private void clearText()
         {

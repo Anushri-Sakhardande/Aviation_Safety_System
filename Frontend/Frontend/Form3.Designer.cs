@@ -269,9 +269,9 @@
             this.rankLabel.AutoSize = true;
             this.rankLabel.Location = new System.Drawing.Point(80, 314);
             this.rankLabel.Name = "rankLabel";
-            this.rankLabel.Size = new System.Drawing.Size(220, 38);
+            this.rankLabel.Size = new System.Drawing.Size(88, 38);
             this.rankLabel.TabIndex = 10;
-            this.rankLabel.Text = "Contributor Rank";
+            this.rankLabel.Text = "Points";
             // 
             // reportedLabel
             // 

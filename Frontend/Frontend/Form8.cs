@@ -127,14 +127,5 @@ namespace Frontend
             Close();
         }
 
-        private void panelTitle_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

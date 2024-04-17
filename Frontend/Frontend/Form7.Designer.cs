@@ -44,15 +44,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.countrycomboBox = new System.Windows.Forms.ComboBox();
+            this.typecomboBox = new System.Windows.Forms.ComboBox();
+            this.manucomboBox = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -306,36 +307,40 @@
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // comboBox3
+            // countrycomboBox
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(1053, 202);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(216, 45);
-            this.comboBox3.TabIndex = 19;
+            this.countrycomboBox.FormattingEnabled = true;
+            this.countrycomboBox.Location = new System.Drawing.Point(1053, 202);
+            this.countrycomboBox.Name = "countrycomboBox";
+            this.countrycomboBox.Size = new System.Drawing.Size(216, 45);
+            this.countrycomboBox.TabIndex = 19;
+            this.countrycomboBox.SelectedIndexChanged += new System.EventHandler(this.countrycomboBox_SelectedIndexChanged);
             // 
-            // comboBox2
+            // typecomboBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(831, 200);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(216, 45);
-            this.comboBox2.TabIndex = 18;
+            this.typecomboBox.FormattingEnabled = true;
+            this.typecomboBox.Location = new System.Drawing.Point(831, 200);
+            this.typecomboBox.Name = "typecomboBox";
+            this.typecomboBox.Size = new System.Drawing.Size(216, 45);
+            this.typecomboBox.TabIndex = 18;
+            this.typecomboBox.SelectedIndexChanged += new System.EventHandler(this.typecomboBox_SelectedIndexChanged);
             // 
-            // comboBox1
+            // manucomboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(609, 200);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(216, 45);
-            this.comboBox1.TabIndex = 17;
+            this.manucomboBox.FormattingEnabled = true;
+            this.manucomboBox.Location = new System.Drawing.Point(609, 200);
+            this.manucomboBox.Name = "manucomboBox";
+            this.manucomboBox.Size = new System.Drawing.Size(216, 45);
+            this.manucomboBox.TabIndex = 17;
+            this.manucomboBox.SelectedIndexChanged += new System.EventHandler(this.manucomboBox_SelectedIndexChanged);
             // 
-            // dateTimePicker1
+            // dateTimePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(322, 202);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(281, 43);
-            this.dateTimePicker1.TabIndex = 16;
+            this.dateTimePicker.Location = new System.Drawing.Point(322, 202);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(281, 43);
+            this.dateTimePicker.TabIndex = 16;
+            this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             // 
             // label2
             // 
@@ -360,9 +365,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(831, 161);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(125, 38);
+            this.label10.Size = new System.Drawing.Size(104, 38);
             this.label10.TabIndex = 21;
-            this.label10.Text = "Operator";
+            this.label10.Text = "Aircraft";
             // 
             // label11
             // 
@@ -380,25 +385,38 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1040, 452);
+            this.dataGridView1.Size = new System.Drawing.Size(955, 699);
             this.dataGridView1.TabIndex = 23;
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.iconButton2.IconColor = System.Drawing.Color.Black;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.Location = new System.Drawing.Point(1279, 191);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(75, 54);
+            this.iconButton2.TabIndex = 24;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.countrycomboBox);
+            this.Controls.Add(this.typecomboBox);
             this.Controls.Add(this.panelTitle);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.manucomboBox);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePicker);
             this.Font = new System.Drawing.Font("Nirmala UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
@@ -434,15 +452,16 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label8;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox countrycomboBox;
+        private System.Windows.Forms.ComboBox typecomboBox;
+        private System.Windows.Forms.ComboBox manucomboBox;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private FontAwesome.Sharp.IconButton iconButton2;
     }
 }

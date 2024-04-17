@@ -1,14 +1,10 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace Frontend
 {
@@ -18,6 +14,7 @@ namespace Frontend
         OracleCommand cmd;
         OracleDataAdapter da;
         DataTable dt;
+        DataTable dtbase;
         public Form7(DataTable dt)
         {
             InitializeComponent();
@@ -44,6 +41,40 @@ namespace Frontend
             {
                 iconButtonReview.Visible = true;
             }
+
+            // Populate the dropdowns
+            DataTable dtdp = new DataTable();
+
+            //manufacturer
+            cmd.CommandText = "SELECT DISTINCT manufacturer FROM aircraft ORDER BY manufacturer ASC";
+            cmd.CommandType = CommandType.Text;
+            DataSet ds = new DataSet();
+            da = new OracleDataAdapter(cmd.CommandText, conn);
+            da.Fill(ds, "manufacturer");
+            dtdp = ds.Tables["manufacturer"];
+            manucomboBox.DataSource = dtdp.DefaultView;
+            manucomboBox.DisplayMember = "manufacturer";
+
+            //Type
+            cmd.CommandText = "SELECT DISTINCT type FROM aircraft ORDER BY type ASC";
+            cmd.CommandType = CommandType.Text;
+            ds = new DataSet();
+            da = new OracleDataAdapter(cmd.CommandText, conn);
+            da.Fill(ds, "type");
+            dtdp = ds.Tables["type"];
+            typecomboBox.DataSource = dtdp.DefaultView;
+            typecomboBox.DisplayMember = "type";
+
+            //Country
+            cmd.CommandText = "SELECT DISTINCT country FROM incident ORDER BY country ASC";
+            cmd.CommandType = CommandType.Text;
+            ds = new DataSet();
+            da = new OracleDataAdapter(cmd.CommandText, conn);
+            da.Fill(ds, "country");
+            dtdp = ds.Tables["country"];
+            countrycomboBox.DataSource = dtdp.DefaultView;
+            countrycomboBox.DisplayMember = "country";
+            conn.Close();
         }
 
         //!!! REPLICABLE CODE
@@ -125,6 +156,59 @@ namespace Frontend
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            string date = dateTimePicker.Text.Trim();
+            string manufacturer = manucomboBox.Text.Trim();
+            string aircraft = typecomboBox.Text.Trim();
+
+            dtbase = new DataTable();
+            string query = "select accd_date,location,fatalities,cat,country,type,manufacturer,mil_com from incident join aircraft using(aircraft_id)"; 
+
+            OracleCommand cmd = new OracleCommand(query, conn);
+
+            da = new OracleDataAdapter(cmd);
+            da.Fill(dtbase);
+            dataGridView1.DataSource = dtbase;
+            conn.Close();
+
+        }
+
+        private void dateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(dtbase);
+            DateTime selectedDate = dateTimePicker.Value.Date; // Extracting date part without time
+            dv.RowFilter = string.Format("accd_date = #{0:yyyy-MM-dd}#", selectedDate);
+            dataGridView1.DataSource = dv;
+
+        }
+
+        private void manucomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(dtbase);
+            string selectedManu = manucomboBox.Text; // Get the selected manufacturer
+            dv.RowFilter = string.Format("manufacturer = '{0}'", selectedManu);
+            dataGridView1.DataSource = dv;
+
+        }
+
+        private void typecomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(dtbase);
+            string selectedType = typecomboBox.Text; // Get the selected manufacturer
+            dv.RowFilter = string.Format("type = '{0}'", selectedType);
+            dataGridView1.DataSource = dv;
+        }
+
+        private void countrycomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(dtbase);
+            string selectedCountry = countrycomboBox.Text; // Get the selected manufacturer
+            dv.RowFilter = string.Format("country = '{0}'", selectedCountry);
+            dataGridView1.DataSource = dv;
         }
     }
 }

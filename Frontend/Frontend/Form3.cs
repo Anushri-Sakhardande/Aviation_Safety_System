@@ -31,24 +31,29 @@ namespace Frontend
             // Display the name
             nameLabel.Text = "Hello " + dt.Rows[0]["name"];
 
-            // Display last login
-            string query = "SELECT MAX(login) AS recent_login FROM log_record";
+            string query = "SELECT MAX(login) AS recent_login FROM log_record WHERE user_id = :userId";
             cmd = new OracleCommand(query, conn);
+            cmd.Parameters.Add(":userId", OracleDbType.Int32).Value = dt.Rows[0]["user_id"];
             object result = cmd.ExecuteScalar();
-            DateTime mostRecentLogin = Convert.ToDateTime(result);
+
             if (result != null && result != DBNull.Value)
             {
-                loginsLabel.Text += " "+mostRecentLogin;
+                DateTime mostRecentLogin = Convert.ToDateTime(result);
+                loginsLabel.Text += " " + mostRecentLogin.ToString(); 
             }
             else
             {
                 loginsLabel.Text = "Welcome new user";
             }
 
+
+            //display number of reports 
+
             //update the log record
             query = "INSERT INTO log_record (user_id, login) VALUES (:userId, SYSTIMESTAMP)";
             cmd = new OracleCommand(query, conn);
             cmd.Parameters.Add(":userId", OracleDbType.Int32).Value = dt.Rows[0]["user_id"];
+            cmd.ExecuteNonQuery();
 
             //check if admin
             int userId = Convert.ToInt32(dt.Rows[0]["user_id"]);

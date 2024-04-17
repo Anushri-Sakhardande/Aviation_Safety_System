@@ -1,14 +1,12 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.Xml;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Xml.Linq;
 
 namespace Frontend
 {
@@ -44,6 +42,50 @@ namespace Frontend
             {
                 iconButtonReview.Visible = true;
             }
+
+            // Populate the dropdowns
+            DataTable dtdp = new DataTable();   
+
+            //manufacturer
+            cmd.CommandText = "SELECT DISTINCT manufacturer FROM aircraft ORDER BY manufacturer ASC";
+            cmd.CommandType = CommandType.Text;
+            DataSet ds = new DataSet();
+            da = new OracleDataAdapter(cmd.CommandText, conn);
+            da.Fill(ds, "manufacturer");
+            dtdp = ds.Tables["manufacturer"];
+            manucomboBox.DataSource = dtdp.DefaultView;
+            manucomboBox.DisplayMember = "Manufacturer";
+
+            //cat
+            cmd.CommandText = "SELECT DISTINCT cat FROM incident ORDER BY cat ASC";
+            cmd.CommandType = CommandType.Text;
+            ds = new DataSet();
+            da = new OracleDataAdapter(cmd.CommandText, conn);
+            da.Fill(ds, "cat");
+            dtdp = ds.Tables["cat"];
+            catcomboBox.DataSource = dtdp.DefaultView;
+            catcomboBox.DisplayMember = "Cat";
+
+            //Type
+            cmd.CommandText = "SELECT DISTINCT type FROM aircraft ORDER BY type ASC";
+            cmd.CommandType = CommandType.Text;
+            ds = new DataSet();
+            da = new OracleDataAdapter(cmd.CommandText, conn);
+            da.Fill(ds, "type");
+            dtdp = ds.Tables["type"];
+            typecomboBox.DataSource = dtdp.DefaultView;
+            typecomboBox.DisplayMember = "Type";
+
+            //Country
+            cmd.CommandText = "SELECT DISTINCT country FROM incident ORDER BY country ASC";
+            cmd.CommandType = CommandType.Text;
+            ds = new DataSet();
+            da = new OracleDataAdapter(cmd.CommandText, conn);
+            da.Fill(ds, "country");
+            dtdp = ds.Tables["country"];
+            countrycomboBox.DataSource = dtdp.DefaultView;
+            countrycomboBox.DisplayMember = "Country";
+            conn.Close();
         }
 
         //!!! REPLICABLE CODE
@@ -129,9 +171,95 @@ namespace Frontend
             Close();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void submitbutton_Click(object sender, EventArgs e)
         {
+            string dateTime = dateTimePicker.Text;
+            string fatalitiesStr = fatalitiesnumericUpDown.Text;
+            string operate = operatortextBox.Text;
+            string registration = registrationtextBox.Text;
+            string location = locationtextBox.Text;
+            string country = countrycomboBox.Text;
+            string type = typecomboBox.Text;
+            string manu = manucomboBox.Text;
+            string cat = catcomboBox.Text;
 
+            int fatalities;
+            bool parsedSuccessfully = int.TryParse(fatalitiesStr, out fatalities);
+
+            try
+            {
+                if (parsedSuccessfully && fatalities >= 0 &&
+                    !string.IsNullOrEmpty(operate) &&
+                    !string.IsNullOrEmpty(registration) &&
+                    !string.IsNullOrEmpty(location) &&
+                    !string.IsNullOrEmpty(country) &&
+                    !string.IsNullOrEmpty(type) &&
+                    !string.IsNullOrEmpty(manu) &&
+                    !string.IsNullOrEmpty(cat))
+                {
+                    conn.Open(); // Open the connection
+
+                    // Get the user ID
+                    string userId = dt.Rows[0]["user_id"].ToString();
+
+                    //get Report id
+                    string query = "SELECT count(*) FROM report";
+                    cmd = new OracleCommand(query, conn);
+                    int reportId = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
+
+                    //Miltary or Commercial
+                    char mil_Com = milradioButton.Checked ? 'M' : 'C';
+
+                    // Prepare the insert query
+                    string insertQuery = "INSERT INTO report (user_id, report_id, report_datetime, manufacturer, registration, type, mil_Com, accident_date, operator, fatalities, location, country, cat, accepted) " +
+                                         "VALUES (:userId, :reportId, SYSTIMESTAMP, :manufacturer, :registration, :type, :mil_Com, :accident_date, :operate, :fatalities, :location, :country, :cat, :accepted)";
+                    cmd = new OracleCommand(insertQuery, conn);
+
+                    // Add parameters to the command
+                    cmd.Parameters.Add(":userId", OracleDbType.Int32).Value = userId;
+                    cmd.Parameters.Add(":reportId", OracleDbType.Int32).Value = reportId; 
+                    cmd.Parameters.Add(":manufacturer", OracleDbType.Varchar2).Value = manu;
+                    cmd.Parameters.Add(":registration", OracleDbType.Varchar2).Value = registration;
+                    cmd.Parameters.Add(":type", OracleDbType.Varchar2).Value = type;
+                    cmd.Parameters.Add(":mil_Com", OracleDbType.Varchar2).Value = mil_Com;
+                    cmd.Parameters.Add(":accident_date", OracleDbType.Date).Value = dateTime;
+                    cmd.Parameters.Add(":operate", OracleDbType.Varchar2).Value = operate;
+                    cmd.Parameters.Add(":fatalities", OracleDbType.Int32).Value = fatalities;
+                    cmd.Parameters.Add(":location", OracleDbType.Varchar2).Value = location;
+                    cmd.Parameters.Add(":country", OracleDbType.Varchar2).Value = country;
+                    cmd.Parameters.Add(":cat", OracleDbType.Varchar2).Value = cat;
+                    cmd.Parameters.Add(":accepted", OracleDbType.Int32).Value = 0; 
+
+                    // Execute the query
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Your report will be considered by the admin :)");
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect Input :(");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close(); 
+            }
+
+        }
+
+        public static string SanitizeSql(string input)
+        {
+            // Define a regular expression to match potentially dangerous SQL characters
+            string pattern = @"[-;'\""]";
+
+            // Replace potentially dangerous characters with empty strings
+            string sanitizedInput = Regex.Replace(input, pattern, string.Empty);
+
+            return sanitizedInput;
         }
     }
 }

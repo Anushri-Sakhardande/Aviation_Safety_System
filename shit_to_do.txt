@@ -25,6 +25,7 @@
 	sqlldr scott/helloworld control=load_data.ctl
 
 
+
 LOAD DATA
 	INFILE 'C:\Users\Jahnavi\Downloads\aircraft.csv'
 	INTO TABLE AIRCRAFT
@@ -39,12 +40,13 @@ LOAD DATA
 	)
 
 create table AIRCRAFT(
-		admin_id varchar(3),
+		admin_id integer,
 		aircraft_id int,
 		type varchar(40),
 		manufacturer varchar(25),
 		mil_Com varchar(3),
-		primary key(aircraft_id)
+		primary key(aircraft_id),
+foreign key (admin_id) references Admin,
 );
 
 	LOAD DATA
@@ -60,13 +62,14 @@ create table AIRCRAFT(
 	)
 
 create table REGISTRATION(
-	admin_id varchar(3),
+	admin_id integer,
 	registration_id int,
 	manufacturer varchar(25),
 	registration varchar(15),
 	aircraft_id int,
 	primary key(admin_id, registration_id),
-	foreign key (aircraft_id) references AIRCRAFT);
+	foreign key (aircraft_id) references AIRCRAFT,
+	foreign key (admin_id) references Admin);
 
 LOAD DATA
 	INFILE 'C:\Users\Jahnavi\Downloads\incident.csv'
@@ -77,7 +80,7 @@ LOAD DATA
 
 	)
 create table INCIDENT(
-		admin_id varchar(3),
+		admin_id integer,
 		accident_id int,
 		accd_date date,
 		location  varchar(30),
@@ -87,12 +90,15 @@ create table INCIDENT(
 		cat varchar(10),
 		country varchar(25),
 		aircraft_id int,
-		foreign key (admin_id, registration_id) references  REGISTRATION,
+		foreign key (admin_id,registration_id) references  REGISTRATION,
 		foreign key(aircraft_id) references AIRCRAFT,
+		foreign key (admin_id) references Admin,
 		primary key( accident_id));
+user_id,report_id,report_datetime,manufacturer,registration,type,mil_Com,accident_date, operator,fatalities, location,country,cat,accepted
+
 create table REPORT(
-    user_id varchar2(3),
-    report_id varchar2(5),
+    user_id integer,
+    report_id integer,
     report_datetime timestamp,
     manufacturer varchar2(25),
     registration varchar2(15),
@@ -104,7 +110,9 @@ create table REPORT(
     location varchar2(30),
     country varchar2(25),
     cat varchar2(10),
-    primary key(user_id, report_id)
+accepted NUMBER(1),
+    primary key(user_id, report_id),
+    foreign key (user_id) references user_detail
 );
 
 insert into REPORT values(
@@ -126,14 +134,14 @@ insert into REPORT values(
 create table Logrecord(
 user_id integer, 
 login timestamp,
-primary key (user_id,));
+primary key (user_id,login));
 
 insert into Logrecord values( 'usr1',TO_DATE('01/22/2023', 'MM/DD/YYYY'));
 
 create table ADMIN(
 user_id integer,
 admin_id integer,
-primary key(user_id,admin_id)
+primary key(admin_id)
 constraint fkey1 foreign key(user_id) references user_detail);
 
 create table user_detail (
@@ -145,3 +153,23 @@ points integer,
 email varchar(320),
 primary key(user_id)
 );
+
+PLSQL Needed
+-a procedure to calculate points
+-triggers to update the reg/aircraft/incident tables
+-functions to calculate the number of flights reported/number of reports accepted
+-last login(currently running as a query)
+-trigger for when someone's points are greater than x you can make him an admin
+
+
+
+
+
+
+ANU EDITION
+
+CREATE USER DIRECTORY AND GRANT PERMISSIONS
+
+sqlplus / as sysdba
+CREATE OR REPLACE DIRECTORY aviation_dir AS 'C:\Users\anush\OneDrive\Documents\Aviation_Safety_System';
+GRANT READ, WRITE ON DIRECTORY aviation_dir TO c##flysafe;
