@@ -46,7 +46,7 @@ create table AIRCRAFT(
 		manufacturer varchar(25),
 		mil_Com varchar(3),
 		primary key(aircraft_id),
-foreign key (admin_id) references Admin,
+foreign key (admin_id) references Admin
 );
 
 	LOAD DATA
@@ -63,13 +63,16 @@ foreign key (admin_id) references Admin,
 
 create table REGISTRATION(
 	admin_id integer,
+registration varchar(15),
+operator varchar(100),
 	registration_id int,
-	manufacturer varchar(25),
-	registration varchar(15),
 	aircraft_id int,
-	primary key(admin_id, registration_id),
-	foreign key (aircraft_id) references AIRCRAFT,
-	foreign key (admin_id) references Admin);
+	primary key(registration_id),
+foreign key (aircraft_id) references AIRCRAFT,
+foreign key (admin_id) references Admin
+	);
+
+
 
 LOAD DATA
 	INFILE 'C:\Users\Jahnavi\Downloads\incident.csv'
@@ -80,20 +83,20 @@ LOAD DATA
 
 	)
 create table INCIDENT(
-		admin_id integer,
-		accident_id int,
-		accd_date date,
-		location  varchar(30),
-		operator_id int,
-		fatalities int,
-		registration_id int,
-		cat varchar(10),
-		country varchar(25),
-		aircraft_id int,
-		foreign key (admin_id,registration_id) references  REGISTRATION,
-		foreign key(aircraft_id) references AIRCRAFT,
-		foreign key (admin_id) references Admin,
-		primary key( accident_id));
+accident_id int,
+admin_id int,
+accd_date date,
+location  varchar(30),
+fatalities int,
+registration_id int,
+cat varchar(10),
+country varchar(25),
+aircraft_id int,
+foreign key (registration_id) references  REGISTRATION,
+foreign key(aircraft_id) references AIRCRAFT,
+foreign key (admin_id) references Admin,
+primary key( accident_id));
+
 user_id,report_id,report_datetime,manufacturer,registration,type,mil_Com,accident_date, operator,fatalities, location,country,cat,accepted
 
 create table REPORT(
@@ -105,7 +108,7 @@ create table REPORT(
     type varchar2(40),
     mil_Com varchar2(3),
     accident_date date,
-    operator varchar2(15),
+    operator varchar2(100),
     Fatalities int,
     location varchar2(30),
     country varchar2(25),
@@ -154,6 +157,9 @@ email varchar(320),
 primary key(user_id)
 );
 
+
+
+
 PLSQL Needed
 -a procedure to calculate points
 -triggers to update the reg/aircraft/incident tables
@@ -161,6 +167,38 @@ PLSQL Needed
 -last login(currently running as a query)
 -trigger for when someone's points are greater than x you can make him an admin
 
+CREATE TRIGGER update_points_on_login
+AFTER INSERT ON Log_record
+FOR EACH ROW
+BEGIN
+    UPDATE user_detail
+    SET points = points + 10
+    WHERE user_id = :NEW.user_id;
+END;
+
+-- Trigger for report submission
+CREATE TRIGGER update_points_on_report_submission
+AFTER INSERT ON REPORT
+FOR EACH ROW
+BEGIN
+    UPDATE user_detail
+    SET points = points + 20
+    WHERE user_id = :NEW.user_id;
+END;
+/
+
+-- Trigger for accepted report
+CREATE TRIGGER update_points_on_accepted_report
+AFTER UPDATE ON REPORT
+FOR EACH ROW
+BEGIN
+    IF :NEW.accepted = 1 THEN
+        UPDATE user_detail
+        SET points = points + 50
+        WHERE user_id = :NEW.user_id;
+    END IF;
+END;
+/
 
 
 

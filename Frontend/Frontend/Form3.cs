@@ -46,14 +46,28 @@ namespace Frontend
                 loginsLabel.Text = "Welcome new user";
             }
 
-
-            //display number of reports 
-
             //update the log record
             query = "INSERT INTO log_record (user_id, login) VALUES (:userId, SYSTIMESTAMP)";
             cmd = new OracleCommand(query, conn);
             cmd.Parameters.Add(":userId", OracleDbType.Int32).Value = dt.Rows[0]["user_id"];
             cmd.ExecuteNonQuery();
+
+            //display number of reports 
+            query = "SELECT COUNT(report_id) FROM report WHERE user_id = :userId";
+            cmd = new OracleCommand(query, conn);
+            cmd.Parameters.Add(":userId", OracleDbType.Int32).Value = dt.Rows[0]["user_id"];
+            result = cmd.ExecuteScalar();
+            reportedLabel.Text+= ":" + result.ToString();
+
+            //display number of reports accepted
+            query = "SELECT COUNT(report_id) FROM report WHERE user_id = :userId and accepted=1";
+            cmd = new OracleCommand(query, conn);
+            cmd.Parameters.Add(":userId", OracleDbType.Int32).Value = dt.Rows[0]["user_id"];
+            result = cmd.ExecuteScalar();
+            acceptedLabel.Text += ":" + result.ToString();
+
+            //Points
+            pointLabel.Text += ":" + dt.Rows[0]["points"];
 
             //check if admin
             int userId = Convert.ToInt32(dt.Rows[0]["user_id"]);

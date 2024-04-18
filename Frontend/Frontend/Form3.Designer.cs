@@ -42,7 +42,7 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.acceptedLabel = new System.Windows.Forms.Label();
-            this.rankLabel = new System.Windows.Forms.Label();
+            this.pointLabel = new System.Windows.Forms.Label();
             this.reportedLabel = new System.Windows.Forms.Label();
             this.loginsLabel = new System.Windows.Forms.Label();
             this.panelTitle = new System.Windows.Forms.Panel();
@@ -247,7 +247,7 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panel3.Controls.Add(this.acceptedLabel);
-            this.panel3.Controls.Add(this.rankLabel);
+            this.panel3.Controls.Add(this.pointLabel);
             this.panel3.Controls.Add(this.reportedLabel);
             this.panel3.Controls.Add(this.loginsLabel);
             this.panel3.Location = new System.Drawing.Point(448, 268);
@@ -264,14 +264,14 @@
             this.acceptedLabel.TabIndex = 11;
             this.acceptedLabel.Text = "Number of Reports Accepted";
             // 
-            // rankLabel
+            // pointLabel
             // 
-            this.rankLabel.AutoSize = true;
-            this.rankLabel.Location = new System.Drawing.Point(80, 314);
-            this.rankLabel.Name = "rankLabel";
-            this.rankLabel.Size = new System.Drawing.Size(88, 38);
-            this.rankLabel.TabIndex = 10;
-            this.rankLabel.Text = "Points";
+            this.pointLabel.AutoSize = true;
+            this.pointLabel.Location = new System.Drawing.Point(80, 314);
+            this.pointLabel.Name = "pointLabel";
+            this.pointLabel.Size = new System.Drawing.Size(88, 38);
+            this.pointLabel.TabIndex = 10;
+            this.pointLabel.Text = "Points";
             // 
             // reportedLabel
             // 
@@ -372,7 +372,7 @@
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label rankLabel;
+        private System.Windows.Forms.Label pointLabel;
         private System.Windows.Forms.Label reportedLabel;
         private System.Windows.Forms.Label loginsLabel;
         private System.Windows.Forms.Label acceptedLabel;

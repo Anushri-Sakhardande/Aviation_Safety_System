@@ -1,0 +1,7 @@
+accident_id,admin_id,accd_date,location,Fatalities,registration_id,cat,Country,aircraft_id
+9106,1,03/14/1990,Jászjákóhalma,0,6988,A1,Hungary,537
+11647,1,09-11-2001,"New York, NY",SS,9211,H1,USA,2188
+12018,1,05-08-2003,near Bunia Airpor...,0,8927,C1,D.R. Congo,1076
+12609,1,04/23/2006,Kousséri,6,13888,A1,Cameroon,2356
+12860,1,06/25/2007,"near Tehachapi, CA",0,9555,A2,USA,2410
+15586,1,03-01-2021,Ji'an County,5,3161,A1,China,2766

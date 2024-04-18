@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using FontAwesome.Sharp;
+
 
 namespace Frontend
 {
@@ -44,8 +46,65 @@ namespace Frontend
             {
                 iconButtonReview.Visible = true;
             }
-        }
 
+            //Add all the reports to the table
+            DataTable dtr = new DataTable();
+            query = "select * from report";
+            cmd=new OracleCommand(query, conn);
+            da=new OracleDataAdapter(cmd);
+            da.Fill(dt);
+            int numberOfReports = dt.Rows.Count;
+
+            tableLayoutPanel1.Controls.Clear();
+
+            // Set up the TableLayoutPanel
+            tableLayoutPanel1.RowStyles.Clear();
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+
+            // Loop to create labels and buttons
+            for (int i = 0; i < numberOfReports; i++)
+            {
+                Label label = new Label();
+                label.AutoSize = true;
+
+                // Extract information from the current row of DataTable
+                DataRow row = dt.Rows[i];
+                string reportInfo = $"Report ID: {row["report_id"]}, Date: {row["report_datetime"]}, Location: {row["location"]}, Country: {row["country"]}";
+
+                label.Text = reportInfo;
+                // Create corresponding button
+
+                iconButton1 = new IconButton
+                {
+                    // Set the icon using FontAwesome icon code
+                    IconChar = IconChar.CheckCircle,
+                    IconColor = System.Drawing.Color.Black,
+                    IconFont = IconFont.Auto,
+                    IconSize = 48,
+                    Location = new System.Drawing.Point(50, 50), // Set the location
+                    Size = new System.Drawing.Size(150, 50), // Set the size
+                    TextAlign = ContentAlignment.MiddleRight, // Set the text alignment
+                     // Set the text
+                    FlatStyle = FlatStyle.Flat, // Set the button style
+                    //BackColor = System.Drawing.Color., // Set the background color
+                    ForeColor = System.Drawing.Color.White, // Set the text color
+                    ImageAlign = ContentAlignment.MiddleLeft, // Set the image alignment
+                    Image = null, // You can also set an image
+                };
+                // Attach event handler for button click event
+                iconButton1.Click += (send, eve) =>
+                {
+                    // Handle button click event here
+                    // You can use the sender object to identify which button was clicked
+                    MessageBox.Show($"Button {((IconButton)sender).Name} clicked!");
+                };
+
+                // Add label and button to the TableLayoutPanel
+                tableLayoutPanel1.Controls.Add(label, 0, i);
+                tableLayoutPanel1.Controls.Add(iconButton1, 1, i);
+
+            }
+        }
         //!!! REPLICABLE CODE
         private void CollapseMenu()
         {

@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Xml.Linq;
+using System.Globalization;
 
 namespace Frontend
 {
@@ -86,6 +87,18 @@ namespace Frontend
             countrycomboBox.DataSource = dtdp.DefaultView;
             countrycomboBox.DisplayMember = "Country";
             conn.Close();
+
+            //operator
+            cmd.CommandText = "SELECT DISTINCT operator FROM registration ORDER BY operator ASC";
+            cmd.CommandType = CommandType.Text;
+            ds = new DataSet();
+            da = new OracleDataAdapter(cmd.CommandText, conn);
+            da.Fill(ds, "operator");
+            dtdp = ds.Tables["operator"];
+            operatorcomboBox.DataSource = dtdp.DefaultView;
+            operatorcomboBox.DisplayMember = "Operator";
+            conn.Close();
+
         }
 
         //!!! REPLICABLE CODE
@@ -173,9 +186,11 @@ namespace Frontend
 
         private void submitbutton_Click(object sender, EventArgs e)
         {
-            string dateTime = dateTimePicker.Text;
+            string dateTime = dateTimePicker.Value.Date.ToString("dd-MM-yyyy");
+            DateTime accidentDate;
+            bool dateTimeParsed = DateTime.TryParseExact(dateTime, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out accidentDate);
             string fatalitiesStr = fatalitiesnumericUpDown.Text;
-            string operate = operatortextBox.Text;
+            string operate = operatorcomboBox.Text;
             string registration = registrationtextBox.Text;
             string location = locationtextBox.Text;
             string country = countrycomboBox.Text;
@@ -215,6 +230,8 @@ namespace Frontend
                                          "VALUES (:userId, :reportId, SYSTIMESTAMP, :manufacturer, :registration, :type, :mil_Com, :accident_date, :operate, :fatalities, :location, :country, :cat, :accepted)";
                     cmd = new OracleCommand(insertQuery, conn);
 
+                    MessageBox.Show(userId + " " + reportId + " " + manu + " " + registration + " " + type + " " + mil_Com + " " + dateTime + " " + operate + " " + fatalitiesStr + " " + location + " " + country + " " + cat);
+
                     // Add parameters to the command
                     cmd.Parameters.Add(":userId", OracleDbType.Int32).Value = userId;
                     cmd.Parameters.Add(":reportId", OracleDbType.Int32).Value = reportId; 
@@ -224,7 +241,7 @@ namespace Frontend
                     cmd.Parameters.Add(":mil_Com", OracleDbType.Varchar2).Value = mil_Com;
                     cmd.Parameters.Add(":accident_date", OracleDbType.Date).Value = dateTime;
                     cmd.Parameters.Add(":operate", OracleDbType.Varchar2).Value = operate;
-                    cmd.Parameters.Add(":fatalities", OracleDbType.Int32).Value = fatalities;
+                    cmd.Parameters.Add(":fatalities", OracleDbType.Int32).Value = fatalitiesStr;
                     cmd.Parameters.Add(":location", OracleDbType.Varchar2).Value = location;
                     cmd.Parameters.Add(":country", OracleDbType.Varchar2).Value = country;
                     cmd.Parameters.Add(":cat", OracleDbType.Varchar2).Value = cat;
