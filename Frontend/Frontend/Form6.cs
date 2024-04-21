@@ -186,9 +186,7 @@ namespace Frontend
 
         private void submitbutton_Click(object sender, EventArgs e)
         {
-            string dateTime = dateTimePicker.Value.Date.ToString("dd-MM-yyyy");
-            DateTime accidentDate;
-            bool dateTimeParsed = DateTime.TryParseExact(dateTime, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out accidentDate);
+            DateTime dateTime = dateTimePicker.Value.Date;
             string fatalitiesStr = fatalitiesnumericUpDown.Text;
             string operate = operatorcomboBox.Text;
             string registration = registrationtextBox.Text;
@@ -230,22 +228,20 @@ namespace Frontend
                                          "VALUES (:userId, :reportId, SYSTIMESTAMP, :manufacturer, :registration, :type, :mil_Com, :accident_date, :operate, :fatalities, :location, :country, :cat, :accepted)";
                     cmd = new OracleCommand(insertQuery, conn);
 
-                    MessageBox.Show(userId + " " + reportId + " " + manu + " " + registration + " " + type + " " + mil_Com + " " + dateTime + " " + operate + " " + fatalitiesStr + " " + location + " " + country + " " + cat);
-
                     // Add parameters to the command
                     cmd.Parameters.Add(":userId", OracleDbType.Int32).Value = userId;
-                    cmd.Parameters.Add(":reportId", OracleDbType.Int32).Value = reportId; 
+                    cmd.Parameters.Add(":reportId", OracleDbType.Int32).Value = reportId;
                     cmd.Parameters.Add(":manufacturer", OracleDbType.Varchar2).Value = manu;
                     cmd.Parameters.Add(":registration", OracleDbType.Varchar2).Value = registration;
                     cmd.Parameters.Add(":type", OracleDbType.Varchar2).Value = type;
                     cmd.Parameters.Add(":mil_Com", OracleDbType.Varchar2).Value = mil_Com;
                     cmd.Parameters.Add(":accident_date", OracleDbType.Date).Value = dateTime;
                     cmd.Parameters.Add(":operate", OracleDbType.Varchar2).Value = operate;
-                    cmd.Parameters.Add(":fatalities", OracleDbType.Int32).Value = fatalitiesStr;
+                    cmd.Parameters.Add(":fatalities", OracleDbType.Int32).Value = fatalities;
                     cmd.Parameters.Add(":location", OracleDbType.Varchar2).Value = location;
                     cmd.Parameters.Add(":country", OracleDbType.Varchar2).Value = country;
                     cmd.Parameters.Add(":cat", OracleDbType.Varchar2).Value = cat;
-                    cmd.Parameters.Add(":accepted", OracleDbType.Int32).Value = 0; 
+                    cmd.Parameters.Add(":accepted", OracleDbType.Int32).Value = 0;
 
                     // Execute the query
                     cmd.ExecuteNonQuery();
@@ -259,14 +255,16 @@ namespace Frontend
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + ex.Message);
+                MessageBox.Show("An error occurred: " + ex.StackTrace);
+                
             }
             finally
             {
-                conn.Close(); 
+                conn.Close();
             }
 
         }
+
 
         public static string SanitizeSql(string input)
         {

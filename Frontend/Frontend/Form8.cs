@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using FontAwesome.Sharp;
+using System.Collections;
 
 
 namespace Frontend
@@ -20,6 +21,9 @@ namespace Frontend
         OracleCommand cmd;
         OracleDataAdapter da;
         DataTable dt;
+        private IconButton iconButtonAccept;
+        private IconButton iconButtonCancel;
+
         public Form8(DataTable dt)
         {
             InitializeComponent();
@@ -39,7 +43,6 @@ namespace Frontend
             cmd = new OracleCommand(query, conn);
             cmd.Parameters.Add(":userId", OracleDbType.Int32).Value = userId;
             da = new OracleDataAdapter(cmd);
-
             DataTable dta = new DataTable();
             da.Fill(dta);
             if (dta.Rows.Count == 1)
@@ -47,64 +50,191 @@ namespace Frontend
                 iconButtonReview.Visible = true;
             }
 
+        }
+
+        private void clearTable()
+        {
+            for (int i = tableLayoutPanel1.Controls.Count - 1; i >= 0; i--)
+            {
+                if (tableLayoutPanel1.GetRow(tableLayoutPanel1.Controls[i]) > 0)
+                {
+                    Control control = tableLayoutPanel1.Controls[i];
+                    tableLayoutPanel1.Controls.Remove(control);
+                    control.Dispose();
+                }
+            }
+        }
+
+        private void showTable()
+        {
+            clearTable();
             //Add all the reports to the table
             DataTable dtr = new DataTable();
-            query = "select * from report";
-            cmd=new OracleCommand(query, conn);
-            da=new OracleDataAdapter(cmd);
+            string query = "select * from report where accepted=0";
+            cmd = new OracleCommand(query, conn);
+            da = new OracleDataAdapter(cmd);
             da.Fill(dt);
             int numberOfReports = dt.Rows.Count;
-
-            tableLayoutPanel1.Controls.Clear();
-
-            // Set up the TableLayoutPanel
-            tableLayoutPanel1.RowStyles.Clear();
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.AutoSize));
 
             // Loop to create labels and buttons
             for (int i = 0; i < numberOfReports; i++)
             {
-                Label label = new Label();
-                label.AutoSize = true;
-
-                // Extract information from the current row of DataTable
                 DataRow row = dt.Rows[i];
-                string reportInfo = $"Report ID: {row["report_id"]}, Date: {row["report_datetime"]}, Location: {row["location"]}, Country: {row["country"]}";
+                //1
+                Label userlabel = new Label();
+                userlabel.AutoSize = true;
+                userlabel.Text = row["user_id"].ToString();
+                //2
+                Label repDatelabel = new Label();
+                repDatelabel.AutoSize = true;
+                repDatelabel.Text = row["report_datetime"].ToString();
+                //3
+                Label manufacturerlabel = new Label();
+                manufacturerlabel.AutoSize = true;
+                manufacturerlabel.Text = row["manufacturer"].ToString();
+                //4
+                Label reglabel = new Label();
+                reglabel.AutoSize = true;
+                reglabel.Text = row["registration"].ToString();
+                //5
+                Label typelabel = new Label();
+                typelabel.AutoSize = true;
+                typelabel.Text = row["type"].ToString();
+                //6
+                Label milcommlabel = new Label();
+                milcommlabel.AutoSize = true;
+                milcommlabel.Text = row["mil_Com"].ToString();
+                //7
+                Label datelabel = new Label();
+                datelabel.AutoSize = true;
+                datelabel.Text = row["accident_date"].ToString();
+                //8
+                Label operatorlabel = new Label();
+                operatorlabel.AutoSize = true;
+                operatorlabel.Text = row["operator"].ToString();
+                //9
+                Label fatalitieslabel = new Label();
+                fatalitieslabel.AutoSize = true;
+                fatalitieslabel.Text = row["fatalities"].ToString();
+                //11
+                Label locationlabel = new Label();
+                locationlabel.AutoSize = true;
+                locationlabel.Text = row["location"].ToString();
+                //12
+                Label countrylabel = new Label();
+                countrylabel.AutoSize = true;
+                countrylabel.Text = row["country"].ToString();
+                //13
+                Label catlabel = new Label();
+                catlabel.AutoSize = true;
+                catlabel.Text = row["cat"].ToString();
 
-                label.Text = reportInfo;
-                // Create corresponding button
+                this.iconButtonAccept = new FontAwesome.Sharp.IconButton();
+                this.iconButtonAccept.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
+                this.iconButtonAccept.IconColor = System.Drawing.Color.Green;
+                this.iconButtonAccept.IconFont = FontAwesome.Sharp.IconFont.Auto;
+                this.iconButtonAccept.IconSize = 24;
+                this.iconButtonAccept.Name = "iconButtonAccept";
+                this.iconButtonAccept.Size = new System.Drawing.Size(40, 40); // Set size as needed
+                this.iconButtonAccept.TabIndex = 0;
+                this.iconButtonAccept.Text = "Accept";
+                this.iconButtonAccept.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+                this.iconButtonAccept.UseVisualStyleBackColor = true;
+                this.iconButtonAccept.Tag = row["report_id"].ToString();
+                this.iconButtonAccept.Click += new System.EventHandler(this.iconButtonAccept_Click);
 
-                iconButton1 = new IconButton
-                {
-                    // Set the icon using FontAwesome icon code
-                    IconChar = IconChar.CheckCircle,
-                    IconColor = System.Drawing.Color.Black,
-                    IconFont = IconFont.Auto,
-                    IconSize = 48,
-                    Location = new System.Drawing.Point(50, 50), // Set the location
-                    Size = new System.Drawing.Size(150, 50), // Set the size
-                    TextAlign = ContentAlignment.MiddleRight, // Set the text alignment
-                     // Set the text
-                    FlatStyle = FlatStyle.Flat, // Set the button style
-                    //BackColor = System.Drawing.Color., // Set the background color
-                    ForeColor = System.Drawing.Color.White, // Set the text color
-                    ImageAlign = ContentAlignment.MiddleLeft, // Set the image alignment
-                    Image = null, // You can also set an image
-                };
-                // Attach event handler for button click event
-                iconButton1.Click += (send, eve) =>
-                {
-                    // Handle button click event here
-                    // You can use the sender object to identify which button was clicked
-                    MessageBox.Show($"Button {((IconButton)sender).Name} clicked!");
-                };
+                // Initialize iconButtonCancel
+                this.iconButtonCancel = new FontAwesome.Sharp.IconButton();
+                this.iconButtonCancel.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
+                this.iconButtonCancel.IconColor = System.Drawing.Color.Red;
+                this.iconButtonCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+                this.iconButtonCancel.IconSize = 24;
+                this.iconButtonCancel.Name = "iconButtonCancel";
+                this.iconButtonCancel.Size = new System.Drawing.Size(40, 40); // Set size as needed
+                this.iconButtonCancel.TabIndex = 1;
+                this.iconButtonCancel.Text = "Reject";
+                this.iconButtonCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+                this.iconButtonCancel.UseVisualStyleBackColor = true;
+                this.iconButtonCancel.Tag = row["report_id"].ToString();
+                this.iconButtonCancel.Click += new System.EventHandler(this.iconButtonCancel_Click);
 
-                // Add label and button to the TableLayoutPanel
-                tableLayoutPanel1.Controls.Add(label, 0, i);
-                tableLayoutPanel1.Controls.Add(iconButton1, 1, i);
+                // Add controls to tableLayoutPanel1
+                tableLayoutPanel1.Controls.Add(iconButtonAccept, 12, i+1);
+                tableLayoutPanel1.Controls.Add(iconButtonCancel, 13, i+1);
+
+                tableLayoutPanel1.Controls.Add(userlabel, 0, i + 1);
+                tableLayoutPanel1.Controls.Add(repDatelabel, 1, i + 1);
+                tableLayoutPanel1.Controls.Add(reglabel, 2, i + 1);
+                tableLayoutPanel1.Controls.Add(locationlabel, 3, i + 1);
+                tableLayoutPanel1.Controls.Add(countrylabel, 4, i + 1);
+                tableLayoutPanel1.Controls.Add(manufacturerlabel, 5, i + 1);
+                tableLayoutPanel1.Controls.Add(typelabel, 6, i + 1);
+                tableLayoutPanel1.Controls.Add(milcommlabel, 7, i + 1);
+                tableLayoutPanel1.Controls.Add(datelabel, 8, i + 1);
+                tableLayoutPanel1.Controls.Add(operatorlabel, 9, i + 1);
+                tableLayoutPanel1.Controls.Add(fatalitieslabel, 11, i + 1);
+                tableLayoutPanel1.Controls.Add(catlabel, 10, i + 1);
 
             }
+            tableLayoutPanel1.Visible = true;
         }
+
+        private void iconButtonCancel_Click(object sender, EventArgs e)
+        {
+            int reportId = 0;
+            if (int.TryParse(((IconButton)sender).Tag.ToString(), out reportId))
+            {
+                // Update ACCEPTED to 1
+                UpdateAcceptedStatus(reportId, 1);
+            }
+            else
+            {
+                MessageBox.Show("Invalid report ID.");
+            }
+        }
+
+        private void iconButtonAccept_Click(object sender, EventArgs e)
+        {
+            int reportId = 0;
+            if (int.TryParse(((IconButton)sender).Tag.ToString(), out reportId))
+            {
+                // Update ACCEPTED to 1
+                UpdateAcceptedStatus(reportId, 3);
+            }
+            else
+            {
+                MessageBox.Show("Invalid report ID.");
+            }
+        }
+
+        private void UpdateAcceptedStatus(int reportId, int acceptedStatus)
+        {
+            string query = "UPDATE report SET ACCEPTED = :acceptedStatus WHERE REPORT_ID = :reportId";
+            using (OracleCommand cmd = new OracleCommand(query, conn))
+            {
+                cmd.Parameters.Add(":acceptedStatus", OracleDbType.Int32).Value = acceptedStatus;
+                cmd.Parameters.Add(":reportId", OracleDbType.Int32).Value = reportId;
+
+                try
+                {
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Status updated successfully.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Report not found.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+        }
+
+
         //!!! REPLICABLE CODE
         private void CollapseMenu()
         {
@@ -186,5 +316,9 @@ namespace Frontend
             Close();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            showTable();
+        }
     }
 }
