@@ -79,7 +79,7 @@ email varchar(320),
 primary key(user_id)
 );
 
-********TRIGGER***************
+********TRIGGERs***************
 
 CREATE TRIGGER update_points_on_login
 AFTER INSERT ON Log_record
@@ -125,34 +125,35 @@ DECLARE
 BEGIN
     -- Check if the accepted column is updated to 1 from 0
     IF :new.accepted = 1 AND :old.accepted = 0 THEN
-        -- Step 2: Check if aircraft exists
+
+        -- Check if aircraft exists
         SELECT aircraft_id INTO v_aircraft_id
         FROM aircraft
         WHERE manufacturer = :new.manufacturer
         AND type = :new.type
         AND mil_com = :new.mil_com;
 
-        -- Step 3: If aircraft doesn't exist, generate a new aircraft_id
+        -- If aircraft doesn't exist, generate a new aircraft_id
         IF v_aircraft_id IS NULL THEN
             SELECT MAX(aircraft_id) + 1 INTO v_aircraft_id FROM aircraft;
             INSERT INTO aircraft (aircraft_id, admin_id, type, manufacturer, mil_com)
             VALUES (v_aircraft_id, v_admin_id, :new.type, :new.manufacturer, :new.mil_com);
         END IF;
 
-        -- Step 4: Check if registration exists
+        -- Check if registration exists
         SELECT registration_id INTO v_registration_id
         FROM registration
         WHERE registration = :new.registration
         AND operator = :new.operator;
 
-        -- Step 5: If registration doesn't exist, generate a new registration_id
+        -- If registration doesn't exist, generate a new registration_id
         IF v_registration_id IS NULL THEN
             SELECT MAX(registration_id) + 1 INTO v_registration_id FROM registration;
             INSERT INTO registration (registration_id, registration, admin_id, aircraft_id, operator)
             VALUES (v_registration_id, :new.registration, v_admin_id, v_aircraft_id, :new.operator);
         END IF;
 
-        -- Step 6: Check if incident exists
+        -- Check if incident exists
         SELECT accident_id INTO v_incident_id
         FROM incident
         WHERE accd_date = :new.accident_date
@@ -161,7 +162,7 @@ BEGIN
         AND cat = :new.cat
         AND country = :new.country;
 
-        -- Step 7: If incident doesn't exist, generate a new accident_id
+        -- If incident doesn't exist, generate a new accident_id
         IF v_incident_id IS NULL THEN
             SELECT MAX(accident_id) + 1 INTO v_incident_id FROM incident;
             INSERT INTO incident (accident_id, admin_id, accd_date, location, fatalities, registration_id, cat, country, aircraft_id)
