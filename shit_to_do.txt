@@ -1,44 +1,3 @@
-1. CREATE THE REQUIRED TABLE IN SQLPLUS
-
-2. CREATE A CTL FILE
-
-	LOAD DATA
-	INFILE 'D:\Aviation\accidents_unique.csv'
-	INTO TABLE FATALITIES_DETAILS
-	FIELDS TERMINATED BY ',' optionally enclosed by '"'
-	(
-		accd_date DATE 'MM-DD-YYYY',
-		Month,
-		Year,
-		type,
-		registration,
-		operator,
-		Fatalities,
-		location,
-		cat,
-		Country,
-		Manufacturer,
-		mil_com
-	)
-
-3. RUN THIS CODE IN COMMAND PROMPT
-	sqlldr scott/helloworld control=load_data.ctl
-
-
-
-LOAD DATA
-	INFILE 'C:\Users\Jahnavi\Downloads\aircraft.csv'
-	INTO TABLE AIRCRAFT
-	FIELDS TERMINATED BY ',' optionally enclosed by '"'
-	(
-		admin_id,
-		aircraft_id,
-		type,
-		Manufacturer,
-		Mil_Com
-		
-	)
-
 create table AIRCRAFT(
 		admin_id integer,
 		aircraft_id int,
@@ -49,17 +8,7 @@ create table AIRCRAFT(
 foreign key (admin_id) references Admin
 );
 
-	LOAD DATA
-	INFILE 'C:\Users\Jahnavi\Downloads\registration_1.csv'
-	INTO TABLE REGISTRATION
-	FIELDS TERMINATED BY ',' optionally enclosed by '"'
-	(
-		admin_id,
-		registration_id,
-		Manufacturer,
-		registration,
-		aircraft_id
-	)
+	
 
 create table REGISTRATION(
 	admin_id integer,
@@ -73,15 +22,6 @@ foreign key (admin_id) references Admin
 	);
 
 
-
-LOAD DATA
-	INFILE 'C:\Users\Jahnavi\Downloads\incident.csv'
-	INTO TABLE REGISTRATION
-	FIELDS TERMINATED BY ',' optionally enclosed by '"'
-	(
-		admin_id,Acc_id,accd_date,location,operator_id,Fatalities,registration_id,cat,Country,aircraft_id
-
-	)
 create table INCIDENT(
 accident_id int,
 admin_id int,
@@ -97,7 +37,6 @@ foreign key(aircraft_id) references AIRCRAFT,
 foreign key (admin_id) references Admin,
 primary key( accident_id));
 
-user_id,report_id,report_datetime,manufacturer,registration,type,mil_Com,accident_date, operator,fatalities, location,country,cat,accepted
 
 create table REPORT(
     user_id integer,
@@ -118,28 +57,11 @@ accepted NUMBER(1),
     foreign key (user_id) references user_detail
 );
 
-insert into REPORT values(
-    'u01',
-    'rep01',
-    TO_TIMESTAMP('2024-03-31 15:45:00', 'YYYY-MM-DD HH24:MI:SS'), -- Convert to timestamp
-    'Beriev',
-    '876E-21',
-    'Curtiss R-5C-1 (C-46)',
-    'M',
-    TO_DATE('01/22/2023', 'MM/DD/YYYY'), -- Convert to date
-    'Dunkin',
-    23,
-    'location1',
-    'USA',
-    'A1'
-);
 
 create table Logrecord(
 user_id integer, 
 login timestamp,
 primary key (user_id,login));
-
-insert into Logrecord values( 'usr1',TO_DATE('01/22/2023', 'MM/DD/YYYY'));
 
 create table ADMIN(
 user_id integer,
@@ -157,15 +79,7 @@ email varchar(320),
 primary key(user_id)
 );
 
-
-
-
-PLSQL Needed
--a procedure to calculate points
--triggers to update the reg/aircraft/incident tables
--functions to calculate the number of flights reported/number of reports accepted
--last login(currently running as a query)
--trigger for when someone's points are greater than x you can make him an admin
+********TRIGGER***************
 
 CREATE TRIGGER update_points_on_login
 AFTER INSERT ON Log_record
@@ -200,14 +114,64 @@ BEGIN
 END;
 /
 
+CREATE OR REPLACE TRIGGER report_update_trigger
+BEFORE UPDATE OF accepted ON report
+FOR EACH ROW
+DECLARE
+    v_aircraft_id aircraft.aircraft_id%TYPE;
+    v_registration_id registration.registration_id%TYPE;
+    v_incident_id incident.accident_id%TYPE;
+    v_admin_id CONSTANT NUMBER := 1; -- Admin ID is constant
+BEGIN
+    -- Check if the accepted column is updated to 1 from 0
+    IF :new.accepted = 1 AND :old.accepted = 0 THEN
+        -- Step 2: Check if aircraft exists
+        SELECT aircraft_id INTO v_aircraft_id
+        FROM aircraft
+        WHERE manufacturer = :new.manufacturer
+        AND type = :new.type
+        AND mil_com = :new.mil_com;
 
+        -- Step 3: If aircraft doesn't exist, generate a new aircraft_id
+        IF v_aircraft_id IS NULL THEN
+            SELECT MAX(aircraft_id) + 1 INTO v_aircraft_id FROM aircraft;
+            INSERT INTO aircraft (aircraft_id, admin_id, type, manufacturer, mil_com)
+            VALUES (v_aircraft_id, v_admin_id, :new.type, :new.manufacturer, :new.mil_com);
+        END IF;
 
+        -- Step 4: Check if registration exists
+        SELECT registration_id INTO v_registration_id
+        FROM registration
+        WHERE registration = :new.registration
+        AND operator = :new.operator;
 
+        -- Step 5: If registration doesn't exist, generate a new registration_id
+        IF v_registration_id IS NULL THEN
+            SELECT MAX(registration_id) + 1 INTO v_registration_id FROM registration;
+            INSERT INTO registration (registration_id, registration, admin_id, aircraft_id, operator)
+            VALUES (v_registration_id, :new.registration, v_admin_id, v_aircraft_id, :new.operator);
+        END IF;
 
-ANU EDITION
+        -- Step 6: Check if incident exists
+        SELECT accident_id INTO v_incident_id
+        FROM incident
+        WHERE accd_date = :new.accident_date
+        AND location = :new.location
+        AND fatalities = :new.fatalities
+        AND cat = :new.cat
+        AND country = :new.country;
 
-CREATE USER DIRECTORY AND GRANT PERMISSIONS
+        -- Step 7: If incident doesn't exist, generate a new accident_id
+        IF v_incident_id IS NULL THEN
+            SELECT MAX(accident_id) + 1 INTO v_incident_id FROM incident;
+            INSERT INTO incident (accident_id, admin_id, accd_date, location, fatalities, registration_id, cat, country, aircraft_id)
+            VALUES (v_incident_id, v_admin_id, :new.accident_date, :new.location, :new.fatalities, v_registration_id, :new.cat, :new.country, v_aircraft_id);
+        END IF;
 
-sqlplus / as sysdba
-CREATE OR REPLACE DIRECTORY aviation_dir AS 'C:\Users\anush\OneDrive\Documents\Aviation_Safety_System';
-GRANT READ, WRITE ON DIRECTORY aviation_dir TO c##flysafe;
+        -- Log trigger execution
+        INSERT INTO trigger_log (trigger_name, execution_timestamp)
+        VALUES ('report_update_trigger', SYSTIMESTAMP);
+    END IF;
+END;
+/
+

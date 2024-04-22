@@ -23,7 +23,7 @@ namespace Frontend
         OracleConnection conn;
         OracleCommand cmd;
         OracleDataAdapter da;
-        DataTable dt;
+        DataTable dt,dt1;
         DataRow dr;
         int i = 0;
         MultipleLinearRegression regression;
@@ -31,11 +31,11 @@ namespace Frontend
         Dictionary<string, int> countryIds = new Dictionary<string, int>();
         Dictionary<string, int> manufacturerIds = new Dictionary<string, int>();
 
-        public Form4(DataTable dt)
+        public Form4(DataTable dt1)
         {
             InitializeComponent();
             CollapseMenu();
-            this.dt = dt;
+            this.dt1 = dt1;
         }
 
         private void Form4_Load(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace Frontend
             conn.Open();
 
             //check if admin
-            int userId = Convert.ToInt32(dt.Rows[0]["user_id"]);
+            int userId = Convert.ToInt32(dt1.Rows[0]["user_id"]);
             string query = "SELECT * FROM admin WHERE user_id = :userId";
             cmd = new OracleCommand(query, conn);
             cmd.Parameters.Add(":userId", OracleDbType.Int32).Value = userId;
@@ -63,23 +63,26 @@ namespace Frontend
 
             // Populate the dropdowns
             DataSet ds = new DataSet();
+            DataSet ds1 = new DataSet();
+            DataSet ds2 = new DataSet();
 
             // Retrieve distinct manufacturers from aircraft table
             cmd.CommandText = "SELECT DISTINCT manufacturer FROM aircraft ORDER BY manufacturer ASC";
             cmd.CommandType = CommandType.Text;
             da = new OracleDataAdapter(cmd.CommandText, conn);
             da.Fill(ds, "manufacturers");
-
+            da.Fill(ds1, "manufacturers");
+            da.Fill(ds2, "manufacturers");
             // Set the DataSource for comboBox2
             comboBox2.DataSource = ds.Tables["manufacturers"].DefaultView;
             comboBox2.DisplayMember = "manufacturer";
 
             // Set the DataSource for comboBox3
-            comboBox3.DataSource = ds.Tables["manufacturers"].DefaultView;
+            comboBox3.DataSource = ds1.Tables["manufacturers"].DefaultView;
             comboBox3.DisplayMember = "manufacturer";
 
             // Set the DataSource for comboBox4
-            comboBox4.DataSource = ds.Tables["manufacturers"].DefaultView;
+            comboBox4.DataSource = ds2.Tables["manufacturers"].DefaultView;
             comboBox4.DisplayMember = "manufacturer";
 
 
@@ -93,6 +96,7 @@ namespace Frontend
             countrycomboBox.DataSource = dtdp.DefaultView;
             countrycomboBox.DisplayMember = "Country";
             conn.Close();
+
         }
 
         //!!! REPLICABLE CODE
@@ -133,7 +137,7 @@ namespace Frontend
 
         private void iconButtonHome_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3(dt);
+            Form3 form3 = new Form3(dt1);
             this.Hide();
             form3.ShowDialog();
             Close();
@@ -141,7 +145,7 @@ namespace Frontend
 
         private void iconButtonCheck_Click(object sender, EventArgs e)
         {
-            Form4 form4 = new Form4(dt);
+            Form4 form4 = new Form4(dt1);
             this.Hide();
             form4.ShowDialog();
             Close();
@@ -149,7 +153,7 @@ namespace Frontend
 
         private void iconButtonStats_Click(object sender, EventArgs e)
         {
-            Form5 form5 = new Form5(dt);
+            Form5 form5 = new Form5(dt1);
             this.Hide();
             form5.ShowDialog();
             Close();
@@ -157,7 +161,7 @@ namespace Frontend
 
         private void iconButtonReport_Click(object sender, EventArgs e)
         {
-            Form6 form6 = new Form6(dt);
+            Form6 form6 = new Form6(dt1);
             this.Hide();
             form6.ShowDialog();
             Close();
@@ -165,7 +169,7 @@ namespace Frontend
 
         private void iconButtonAccident_Click(object sender, EventArgs e)
         {
-            Form7 form7 = new Form7(dt);
+            Form7 form7 = new Form7(dt1);
             this.Hide();
             form7.ShowDialog();
             Close();
@@ -173,7 +177,7 @@ namespace Frontend
 
         private void iconButtonReview_Click(object sender, EventArgs e)
         {
-            Form8 form8 = new Form8(dt);
+            Form8 form8 = new Form8(dt1);
             this.Hide();
             form8.ShowDialog();
             Close();
@@ -206,10 +210,10 @@ namespace Frontend
             {
                 predictionMessage.AppendLine($"Manufacturer: {kvp.Key}, Predicted Fatalities: {kvp.Value}");
             }
-            MessageBox.Show(predictionMessage.ToString());
-
+            //MessageBox.Show(predictionMessage.ToString());
+            label2.Text = predictionMessage.ToString();
             var bestManufacturer = predictions.OrderBy(kv => kv.Value).First();
-            label6.Text = bestManufacturer.Key;
+            label6.Text += " "+bestManufacturer.Key;
 
             conn.Close();
 
@@ -233,10 +237,10 @@ namespace Frontend
             }
 
             // Debug: Display countryIds dictionary contents
-            foreach (var kvp in countryIds)
+            /*foreach (var kvp in countryIds)
             {
                 //MessageBox.Show($"Country: {kvp.Key}, ID: {kvp.Value}");
-            }
+            }*/
 
             // Populate manufacturerIds dictionary
             foreach (DataRow row in dataTable.Rows)
@@ -279,31 +283,33 @@ namespace Frontend
             regression = teacher.Learn(features, labels);
         }
 
+        private void countrycomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-
+        }
 
         private double PredictFatalities(string country, string manufacturer1)
         {
             // Get the unique numeric identifier for the country
 
-            MessageBox.Show($"Predicting fatalities for: Country: {country}, Manufacturer: {manufacturer1}");
+            //Debug:MessageBox.Show($"Predicting fatalities for: Country: {country}, Manufacturer: {manufacturer1}");
 
             // Trim whitespace from the manufacturer name
             manufacturer1 = manufacturer1.Trim();
 
 
             int countryId = countryIds.ContainsKey(country) ? countryIds[country] : 0;
-            MessageBox.Show($"Country: {country}, Country ID: {countryId}");
+            //Debug: MessageBox.Show($"Country: {country}, Country ID: {countryId}");
 
-            foreach (var kvp in manufacturerIds)
+            /*foreach (var kvp in manufacturerIds)
             {
                 // MessageBox.Show($"Manufacturer: {kvp.Key}, ID: {kvp.Value}");
-            }
+            }*/
 
             // Get the unique numeric identifier for the manufacturer
             int manufacturerId = manufacturerIds.ContainsKey(manufacturer1 + " ") ? manufacturerIds[manufacturer1 + " "] : 0;
             //int manufacturerId = manufacturerIds[];
-            MessageBox.Show($"Manufacturer: {manufacturer1}, Manufacturer ID: {manufacturerId}");
+            //Debug:MessageBox.Show($"Manufacturer: {manufacturer1}, Manufacturer ID: {manufacturerId}");
 
             // int manufacturerId = 0;
 
@@ -312,7 +318,7 @@ namespace Frontend
             // Predict the number of fatalities
             double[] input = { countryId, manufacturerId };
             double prediction = regression.Transform(input);
-            MessageBox.Show($"Prediction: {prediction}");
+            //Debug:MessageBox.Show($"Prediction: {prediction}");
 
             return prediction;
 

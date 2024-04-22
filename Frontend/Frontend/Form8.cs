@@ -51,9 +51,13 @@ namespace Frontend
             }
 
         }
-
+        
         private void clearTable()
         {
+        tableLayoutPanel1.Controls.Clear();
+        tableLayoutPanel1.RowStyles.Clear();
+        tableLayoutPanel1.ColumnStyles.Clear();
+        tableLayoutPanel1.RowCount = 1; 
             for (int i = tableLayoutPanel1.Controls.Count - 1; i >= 0; i--)
             {
                 if (tableLayoutPanel1.GetRow(tableLayoutPanel1.Controls[i]) > 0)
@@ -64,7 +68,7 @@ namespace Frontend
                 }
             }
         }
-
+        
         private void showTable()
         {
             clearTable();
@@ -185,7 +189,7 @@ namespace Frontend
             if (int.TryParse(((IconButton)sender).Tag.ToString(), out reportId))
             {
                 // Update ACCEPTED to 1
-                UpdateAcceptedStatus(reportId, 1);
+                UpdateAcceptedStatus(reportId, 3);
             }
             else
             {
@@ -198,8 +202,8 @@ namespace Frontend
             int reportId = 0;
             if (int.TryParse(((IconButton)sender).Tag.ToString(), out reportId))
             {
-                // Update ACCEPTED to 1
-                UpdateAcceptedStatus(reportId, 3);
+                // Update ACCEPTED to 3
+                UpdateAcceptedStatus(reportId, 1);
             }
             else
             {
@@ -209,7 +213,9 @@ namespace Frontend
 
         private void UpdateAcceptedStatus(int reportId, int acceptedStatus)
         {
+        
             string query = "UPDATE report SET ACCEPTED = :acceptedStatus WHERE REPORT_ID = :reportId";
+
             using (OracleCommand cmd = new OracleCommand(query, conn))
             {
                 cmd.Parameters.Add(":acceptedStatus", OracleDbType.Int32).Value = acceptedStatus;
@@ -220,7 +226,13 @@ namespace Frontend
                     int rowsAffected = cmd.ExecuteNonQuery();
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Status updated successfully.");
+                        MessageBox.Show("Status updated successfully."+acceptedStatus);
+                        using (OracleTransaction transaction = conn.BeginTransaction())
+                        {
+                            cmd.Transaction = transaction;
+                            cmd.ExecuteNonQuery();
+                           transaction.Commit();
+                         }
                     }
                     else
                     {
@@ -319,6 +331,11 @@ namespace Frontend
         private void button1_Click(object sender, EventArgs e)
         {
             showTable();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

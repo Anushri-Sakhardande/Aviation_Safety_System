@@ -47,6 +47,7 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -294,6 +295,7 @@
             this.countrycomboBox.Name = "countrycomboBox";
             this.countrycomboBox.Size = new System.Drawing.Size(216, 45);
             this.countrycomboBox.TabIndex = 13;
+            this.countrycomboBox.SelectedIndexChanged += new System.EventHandler(this.countrycomboBox_SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -314,20 +316,29 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Location = new System.Drawing.Point(431, 329);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(935, 507);
             this.panel3.TabIndex = 19;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(63, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 38);
+            this.label2.TabIndex = 11;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(38, 35);
+            this.label6.Location = new System.Drawing.Point(63, 325);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(220, 38);
+            this.label6.Size = new System.Drawing.Size(217, 38);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Contributor Rank";
+            this.label6.Text = "Best Manufacter:";
             // 
             // label3
             // 
@@ -379,7 +390,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(165, 46);
             this.button1.TabIndex = 25;
-            this.button1.Text = "button1";
+            this.button1.Text = "Predict ";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -445,5 +456,6 @@
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
     }
 }
